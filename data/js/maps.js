@@ -151,7 +151,7 @@ var layers = {
         "Localidad Censal" : localidades_ptomontt,
         "Entidad Censal"    : entidades_ptomontt,
         "Manzanas Censal"   : manzanas_ptomontt,
-        "Actividades"         : intervencion,
+      //  "Actividades"         : intervencion,
        // "Poblaciones comuna" : poblaciones_ptomontt1, 
         "Comunas" : comunas
    
