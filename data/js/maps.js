@@ -67,14 +67,14 @@ var manzanas_ptomontt        = L.geoJson(manzanas_ptomontt,{
 
 
 
-var intervencion        = L.geoJson(intervencion,
-     {
+// var intervencion        = L.geoJson(intervencion,
+//      {
     
-    //                              style : cargarstylemanzana,
-                                onEachFeature : popusactividad
+//     //                              style : cargarstylemanzana,
+//                                 onEachFeature : popusactividad
 
-                            }
-                        ).addTo(map); 
+//                             }
+//                         ).addTo(map); 
 
 
 //Agregar el control de coordenadas
