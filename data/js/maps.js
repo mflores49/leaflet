@@ -11,7 +11,6 @@ var googleStreets = L.tileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z=
 var blackAndWhite = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png');
 
 
-
 //agregar GeoJson
 
 var comunas        = L.geoJson(comunas,{
@@ -91,6 +90,7 @@ L.control.coordinates(
 }
 ).addTo(map);
 
+
 //Agregar control de Geocodificación
 L.Control.geocoder({
     position		: "topleft",
@@ -99,6 +99,8 @@ L.Control.geocoder({
 }).addTo(map);
 
 //--------------------------------------------------------------------------
+
+
 //Agregar control de Busqueda de atributos de una capa GeoJSON (Search-Control)
 var searchControl = new L.Control.Search({
     layer 			: localidades_ptomontt  ,
@@ -111,26 +113,26 @@ var searchControl = new L.Control.Search({
     }
 });
 
-//Evento que se ejecute cuando se encuentre una ubicación busqueda ('search:locationfound')
-searchControl.on('search:locationfound', function(e){
-e.layer.setStyle({
-fillColor	: '#3f0', 
-color 		: '#0f140e',
-weight		: 10
-});
-if(e.layer._popup){
-e.layer.openPopup();
-}
-}).on('search:collapsed', function(e){
-    localidades_ptomontt  .eachLayer(function(layer){
-    localidades_ptomontt  .resetStyle(layer)
-});
-});
+// //Evento que se ejecute cuando se encuentre una ubicación busqueda ('search:locationfound')
+// searchControl.on('search:locationfound', function(e){
+// e.layer.setStyle({
+// fillColor	: '#3f0', 
+// color 		: '#0f140e',
+// weight		: 10
+// });
+// if(e.layer._popup){
+// e.layer.openPopup();
+// }
+// }).on('search:collapsed', function(e){
+//     localidades_ptomontt  .eachLayer(function(layer){
+//     localidades_ptomontt  .resetStyle(layer)
+// });
+// });
 
 
 //Agregar el control de Busqueda al Mapa
 map.addControl(searchControl);
-//map.removeLayer(limite_departamental)
+
 //-------------------------------------------------------------------------------------------------
 
 
@@ -157,8 +159,12 @@ var layers = {
    
    
 };
-   
+ 
+
 L.control.layers(baseMaps, layers).addTo(map); 
+
+
+
 
 // agregar miniatura map
 
@@ -173,7 +179,6 @@ new L.Control.Scale({
         imperial: false,
          position		: "bottomright"
 }).addTo(map);
-
 
 
 
@@ -328,3 +333,5 @@ var leyenda = L.control.Legend({
         },
     ]
 }).addTo(map);
+
+
