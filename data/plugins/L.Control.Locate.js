@@ -322,7 +322,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
       /** Display a pop-up when the user click on the inner marker. */
       showPopup: true,
       strings: {
-        title: "Show me where I am",
+        title: "Geolocalización",
         metersUnit: "meters",
         feetUnit: "feet",
         popup: "You are within {distance} {unit} from this point",

@@ -20,23 +20,19 @@ var comunas        = L.geoJson(comunas,{
                     }).addTo(map); 
 
 
-var red_vial_ptomontt        = L.geoJson(red_vial_ptomontt,{
+var red_vial_ptomontt = L.geoJson(red_vial_ptomontt,{
     
                         style : red_vial_style,
                        //onEachFeature : popusmanzana
 
                     }).addTo(map);                             
                     
-var localidades_ptomontt        = L.geoJson(localidades_ptomontt,{
+var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
     
                         style : localidad_style,
                         //onEachFeature : popusentidad
        
-                   }).addTo(map);
-
-
-
-         
+                   }).addTo(map);         
 
 var entidades_ptomontt        = L.geoJson(entidades_ptomontt,{
     
@@ -98,45 +94,21 @@ L.Control.geocoder({
     errorMessage	: "No se encontraron resultados de su dirección"
 }).addTo(map);
 
-//--------------------------------------------------------------------------
 
-
-//Agregar control de Busqueda de atributos de una capa GeoJSON (Search-Control)
-var searchControl = new L.Control.Search({
-    layer 			: localidades_ptomontt  ,
-    propertyName	: "eentidad",
-    marker  		: false,
+// //Agregar control de Busqueda de atributos de una capa GeoJSON (Search-Control)
+// var searchControl = new L.Control.Search({
+//     layer 			: localidades_ptomontt  ,
+//     propertyName	: "eentidad",
+//     marker  		: false,
   
-    moveToLocation	: function(latlng, title, map){
-        var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-        map.setView(latlng, zoom);
-    }
-});
-
-// //Evento que se ejecute cuando se encuentre una ubicación busqueda ('search:locationfound')
-// searchControl.on('search:locationfound', function(e){
-// e.layer.setStyle({
-// fillColor	: '#3f0', 
-// color 		: '#0f140e',
-// weight		: 10
-// });
-// if(e.layer._popup){
-// e.layer.openPopup();
-// }
-// }).on('search:collapsed', function(e){
-//     localidades_ptomontt  .eachLayer(function(layer){
-//     localidades_ptomontt  .resetStyle(layer)
-// });
+//     moveToLocation	: function(latlng, title, map){
+//         var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+//         map.setView(latlng, zoom);
+//     }
 // });
 
-
-//Agregar el control de Busqueda al Mapa
-map.addControl(searchControl);
-
-//-------------------------------------------------------------------------------------------------
-
-
-
+// //Agregar el control de Busqueda al Mapa
+// map.addControl(searchControl);
 
 
 // agregar controlados de capas 
@@ -190,17 +162,7 @@ var leyenda = L.control.Legend({
     position  :    "bottomleft",
     collapsed :    true,
     legends   : [
-        //  {
-        //       label      : "Comunas",
-        //       type       : "rectangle",
-        //       color      : "r#2d164c",
-        //       weight     : 2.5,
-        //       opacity    : 1,
-        //       layers     : comunas
-              
 
-        //  }, 
-       
        
         {
             label 		: "Entidad 0 a 50 personas",
@@ -334,4 +296,34 @@ var leyenda = L.control.Legend({
     ]
 }).addTo(map);
 
+
+
+    // Añadir el control de localización
+    var locateControl = L.control.locate({
+        position: 'topleft',
+        drawCircle: true, // Dibujar un círculo alrededor de la posición
+        follow: true, // No seguir al usuario
+        setView: true, // Centrar el mapa en la ubicación
+        keepCurrentZoomLevel: false,
+        markerStyle: {
+            // Estilo del marcador
+            radius: 15,
+            color: '#ff7800',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        },
+        circleStyle: {
+            // Estilo del círculo
+            color: '#ff7800',
+            weight: 1,
+            opacity: 0.5,
+            fillOpacity: 0.2
+        }
+    });
+
+    // Añadir el control al mapa
+    locateControl.addTo(map);
+
+ 
 
