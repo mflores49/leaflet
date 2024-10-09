@@ -1,5 +1,5 @@
 // crear un objeto mapa
-var map = L.map("map").setView([-41.529218, -72.810565], 10);
+var map = L.map("map").setView([-41.529218, -72.810565], 9.5);
 
 
 
