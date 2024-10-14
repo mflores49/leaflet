@@ -49,7 +49,7 @@ function cargarstylemanzana(feature){
 
 //Crear estilo simple para polígonos (comunas)
     var limite_comunas_style = {
-	color		: "#2d164c",
+	color		: "#d95f0e",
 	weight		: 2.3,
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
@@ -81,6 +81,8 @@ var poblacion_style = {
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
 };
+
+
 
 
 

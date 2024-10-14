@@ -198,7 +198,7 @@
     L.Control.Legend = L.Control.extend({
         options: {
             position: "topleft",
-            title: "LEYENDA",
+            title: "Leyenda-Cantidad Personas",
             legends: [],
             symbolWidth: 24,
             symbolHeight: 24,

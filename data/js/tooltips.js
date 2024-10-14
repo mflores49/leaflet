@@ -1,8 +1,8 @@
 //Función para agregar tooltips al GeoJSON (pob2015_departamental)
 function tooltipentidades(feature, layer){
-    if(feature.properties && feature.properties.id_e && feature.properties.elocali && feature.properties.eentidad && feature.properties.epersonas && feature.properties.etotal_viv){
-            var tooltipContent = "<b>ID_Entidad_Censal: </b>" 		    + feature.properties.id_e 					+			
-                                 "<br><b>Localidad: </b>" 				+ feature.properties.elocali 				+
+    if(feature.properties  && feature.properties.elocali && feature.properties.eentidad && feature.properties.epersonas && feature.properties.etotal_viv){
+            var tooltipContent = 						
+                                 "<b>Localidad: </b>" 				+ feature.properties.elocali 				+
                                  "<br><b>Entidad : </b>" 				+ feature.properties.eentidad 				+
                                  "<br><b>Personas :</b>" 				+ feature.properties.epersonas			    +	
                                 //"<br><b>Hombres: </b>" 			    + feature.properties.ehombres               +             	

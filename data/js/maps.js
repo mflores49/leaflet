@@ -5,32 +5,31 @@ var map = L.map("map").setView([-41.529218, -72.810565], 9);
 
 
 // enlazar OpenStreetMap
-var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-var googleSat = L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}');
+
+
 var googleStreets = L.tileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}");
 var blackAndWhite = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png');
+var traffic = L.tileLayer("https://mt1.google.com/vt?lyrs=h@159000000,traffic|seconds_into_week:-1&style=3&x={x}&y={y}&z={z}");
+var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+var googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}');
+var d = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}');
 
 
-//agregar GeoJson
+
 
 var comunas        = L.geoJson(comunas,{
                      style : limite_comunas_style,
-                     //onEachFeature : popusmanzana
+                     
 
                     }).addTo(map); 
 
 
-var red_vial_ptomontt = L.geoJson(red_vial_ptomontt,{
-    
-                        style : red_vial_style,
-                       //onEachFeature : popusmanzana
-
-                    }).addTo(map);                             
+                            
                     
 var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
     
                         style : localidad_style,
-                        //onEachFeature : popusentidad
+                     
        
                    }).addTo(map);         
 
@@ -48,7 +47,7 @@ var poblaciones_ptomontt1        = L.geoJson(poblaciones_ptomontt1,
                     {
                            
                        style : poblacion_style,
-                      //onEachFeature : popusentidad
+                      
                           
                                       }).addTo(map);
 
@@ -61,16 +60,14 @@ var manzanas_ptomontt        = L.geoJson(manzanas_ptomontt,{
                             }).addTo(map); 
 
 
+var cluster_pam = L.markerClusterGroup();
 
-// var intervencion        = L.geoJson(intervencion,
-//      {
-    
-//     //                              style : cargarstylemanzana,
-//                                 onEachFeature : popusactividad
-
-//                             }
-//                         ).addTo(map); 
-
+var edificacion_rural3 	= L.geoJSON(edificacion_rural3, {
+                            
+                            });
+                            
+                            cluster_pam.addLayer(edificacion_rural3);
+                            map.addLayer(cluster_pam);
 
 //Agregar el control de coordenadas
 L.control.coordinates(
@@ -95,40 +92,26 @@ L.Control.geocoder({
 }).addTo(map);
 
 
-// //Agregar control de Busqueda de atributos de una capa GeoJSON (Search-Control)
-// var searchControl = new L.Control.Search({
-//     layer 			: localidades_ptomontt  ,
-//     propertyName	: "eentidad",
-//     marker  		: false,
-  
-//     moveToLocation	: function(latlng, title, map){
-//         var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-//         map.setView(latlng, zoom);
-//     }
-// });
-
-// //Agregar el control de Busqueda al Mapa
-// map.addControl(searchControl);
 
 
 // agregar controlados de capas 
 var baseMaps = {
     "Desactivar Mapas Base" : L.layerGroup([]),
+    "Google Satelital"      : googleSat,
     "OpenStreetMap"         : osm,
     "Google Streets"        : googleStreets,
-    "Google Satelital"      : googleSat,
     "Blanco y Negro"        : blackAndWhite,
+    "Google Traffic"        : traffic,
+    "Esri Topogrfico"       : d,
     
     };
 
 var layers = {
-        "Localidad Censal" : localidades_ptomontt,
-        "Entidad Censal"    : entidades_ptomontt,
-        "Manzanas Censal"   : manzanas_ptomontt,
-      //  "Actividades"         : intervencion,
-       // "Poblaciones comuna" : poblaciones_ptomontt1, 
-        "Comunas" : comunas
-   
+        "Localidad Censal Censo 2017" : localidades_ptomontt,
+        "Entidad Censal Censo 2017"    : entidades_ptomontt,
+        "Manzanas Censal Censo 2017"   : manzanas_ptomontt,
+        "Comunas" : comunas,
+        "Cluster Edificación Rural APC2023"		: cluster_pam 
    
 };
  

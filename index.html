@@ -10,22 +10,28 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- <link rel="stylesheet" type="text/css" href="data/plugins/leaflet.css"> -->
     <link rel="stylesheet" type="text/css" href="data/plugins/L.Control.Locate.css">
     <link rel="stylesheet" type="text/css" href="data/plugins/Control.MiniMap.min.css">
     <link rel="stylesheet" type="text/css" href="data/plugins/leaflet.legend.css">
     <link rel="stylesheet" type="text/css" href="data/plugins/Leaflet.Coordinates-0.1.5.css">
     <link rel="stylesheet" type="text/css" href="data/plugins/Control.Geocoder.css">
     <link rel="stylesheet" type="text/css" href="data/plugins/leaflet-search.min.css">
+    
 
+    
+    <link rel="stylesheet" type="text/css" href="data/plugins/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="data/plugins/MarkerCluster.Default.css">
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+ 
+    <script src="data/plugins/leaflet.js"></script>
     <script src="data/plugins/L.Control.Locate.js"></script>
     <script src="data/plugins/Control.MiniMap.min.js"></script>
     <script src="data/plugins/leaflet.legend.js"></script>
     <script src="data/plugins/Leaflet.Coordinates-0.1.5.min.js"></script>
     <script src="data/plugins/Control.Geocoder.js"></script>
     <script src="data/plugins/leaflet-search.js"></script>
+    <script src="data/plugins/leaflet.markercluster.js"></script>
     <link rel="stylesheet" href="data/css/style.css">
 </head>
 
@@ -33,20 +39,21 @@
     <div>
         <div class="col">
             <header>
-                <h4 class=" text-light p-1 my-1">"Análisis poblacional comuna de Puerto Montt - Censo 2017" </h4>
+                <h4 class=" text-light p-1 my-1">"Distribución poblacional comuna de Puerto Montt" </h4>
             </header>
         </div>
-        
+
         <div>
             <a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11"
                 class="btn btn-outline-primary my-1 mx-1" target="_blank">Windy</a>
             <a href=https://firms.modaps.eosdis.nasa.gov/map/#t:tsd;d:24hrs,24hrs;l:fires_all,country-outline,graticule,landsat_human,protected_areas,protected_areas_regional,volcanoes,topo;@-72.92,-41.43,11.38z
                 class="btn btn-outline-primary my-1 mx-1" target="_blank"> NASA 24hrs </a>
-            <a href="https://www.sismologia.cl/index.html" class="btn btn-outline-primary my-1 mx-1">Sismología </a>
+            <a href="https://www.sismologia.cl/index.html" class="btn btn-outline-primary my-1 mx-1" target="_blank">Sismología </a>
         </div>
     </div>
 
     <div id="map">
+        <script src="data/geojson/edificacion_rural3.js"></script>
         <script src="data/geojson/intervencion.js"></script>
         <script src="data/geojson/poblaciones_ptomontt1.js"></script>
         <script src="data/geojson/localidades_ptomontt.js"></script>
@@ -59,6 +66,9 @@
         <script src="data/js/tooltips.js"></script>
         <script src="data/js/maps.js"></script>
     </div>
+    <footer>
+        <h6>Información Oficial Cartográfica y Censal Ine - https://www.ine.gob.cl/ -  Desarrollador por estandarsig@gmail.com </h6>
+    </footer>
 </body>
 
 </html>
