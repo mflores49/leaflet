@@ -29,7 +29,7 @@ header{
     
     #map{
         width: 100%;
-        height: calc(100% - 105px);
+        height: calc(100% - 110px);
         border-style: solid;     
     
     }
