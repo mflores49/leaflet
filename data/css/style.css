@@ -5,7 +5,7 @@ header{
     padding: 0px;
     }
     
-    header h4{
+    header h6{
     color: rgb(238, 238, 241);
     text-align: center;
     flex-grow:1 ;
