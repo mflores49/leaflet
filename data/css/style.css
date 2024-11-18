@@ -1,0 +1,41 @@
+header{
+    background-color: rgb(55, 67, 245);
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    }
+    
+    header h4{
+    color: rgb(238, 238, 241);
+    text-align: center;
+    flex-grow:1 ;
+    
+    }
+    
+    @media(max-width:768px){
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    
+    
+    body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    }
+    
+    
+    #map{
+        width: 100%;
+        height: calc(100% - 75px);
+        border-style: solid;     
+    
+    }
+    
+
+   
+
+    
+        
