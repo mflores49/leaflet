@@ -100,7 +100,7 @@ cluster_Er.addLayer(edificacion_rural3p);
 
 var hotspotsLayer = L.esri.featureLayer({
                             url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0'
-                            }).addTo(map);
+                            });
 
 //Agregar el control de coordenadas
 L.control.coordinates(
