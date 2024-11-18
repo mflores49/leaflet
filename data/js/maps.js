@@ -1,4 +1,4 @@
-var map = L.map("map").setView([-41.529218, -72.810565], 9);
+var map = L.map("map").setView([-41.529218, -72.810565], 8);
 
 
 
@@ -145,7 +145,7 @@ var layers = {
         "Manzanas Censal INE -  Censo 2017"   : manzanas_ptomontt,
         "Cluster Edificación Rural INE - PreCenso 2023"		: cluster_Er, 
         "Puentes MOP año 2020"		: puentes,
-        "Puntos de Calor VIIRS-NASA (Hotspots)": hotspotsLayer,
+        "Puntos de Calor 7 días VIIRS-NASA (Hotspots)": hotspotsLayer,
 };
  
 
@@ -171,7 +171,7 @@ new L.Control.Scale({
 
 //añadir leyenda
 var leyenda = L.control.Legend({
-    position  :    "bottomleft",
+    position  :    "bottomright",
     collapsed :    true,
     legends   : [
 
