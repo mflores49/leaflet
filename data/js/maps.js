@@ -202,7 +202,7 @@ new L.Control.Scale({
 
 //añadir leyenda
 var leyenda = L.control.Legend({
-    position  :    "bottomright",
+    position  :    "bottomleft",
     collapsed :    true,
     legends   : [
 
