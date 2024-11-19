@@ -107,7 +107,7 @@ var hotspotsLayer = L.esri.featureLayer({
       // Ejemplo de formato: "2024-01-01T12:00:00Z"
   
       // Crear el popup con la fecha formateada
-      layer.bindPopup("Acquisition Time Hora UTC: " + acqTime);
+      layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTime);
       
       // Crear un ícono rojo usando L.divIcon
       var redIcon = L.divIcon({
