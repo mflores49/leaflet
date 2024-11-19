@@ -153,7 +153,7 @@ var hotspotsLayer = L.esri.featureLayer({
                                   // Ejemplo de formato: "2024-01-01T12:00:00Z"
                               
                                   // Crear el popup con la fecha formateada
-                                  layer.bindPopup("Acquisition Time hora UTC: " + acqTime);
+                                  layer.bindPopup("Acquisition VIIRS Time hora UTC: " + acqTime);
                                 }
                               }).addTo(map);
 
