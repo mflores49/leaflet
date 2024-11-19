@@ -4,7 +4,7 @@ var map = L.map("map", {
     center: [-41.529218, -72.810565], // Coordenadas del centro
     zoom:8, // Nivel de zoom inicial
     minZoom:7.5, // Nivel mínimo de zoom
-    maxZoom: 16 // Nivel máximo de zoom
+    maxZoom: 17 // Nivel máximo de zoom
   });
   
 
@@ -129,9 +129,34 @@ cluster_Er.addLayer(edificacion_rural3p);
                             
                             
 
+// var hotspotsLayer = L.esri.featureLayer({
+//                             url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0'
+//                             }).addTo(map);
+
+
+
+
+
 var hotspotsLayer = L.esri.featureLayer({
-                            url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0'
-                            }).addTo(map);
+                                url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
+                                onEachFeature: function (feature, layer) {
+                                  // Verificar si acq_time es una marca de tiempo Unix
+                                  var acqTime = feature.properties.acq_time;
+                              
+                                  // Si acq_time es un número (marca de tiempo Unix en milisegundos)
+                                  if (typeof acqTime === 'number') {
+                                    acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
+                                    acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
+                                  }
+                              
+                                  // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
+                                  // Ejemplo de formato: "2024-01-01T12:00:00Z"
+                              
+                                  // Crear el popup con la fecha formateada
+                                  layer.bindPopup("Acquisition Time hora UTC: " + acqTime);
+                                }
+                              }).addTo(map);
+
 
 //Agregar el control de coordenadas
 L.control.coordinates(
