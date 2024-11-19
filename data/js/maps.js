@@ -1,5 +1,3 @@
-// var map = L.map("map").setView([-41.529218, -72.810565], 8);
-
 var map = L.map("map", {
     center: [-41.529218, -72.810565], // Coordenadas del centro
     zoom:8, // Nivel de zoom inicial
@@ -8,51 +6,7 @@ var map = L.map("map", {
   });
   
 
-// var googleStreets = L.tileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}" ,{
-//     attribution: 'Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE | &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
-//      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
-//     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
 
-// });
-
-
-// var traffic = L.tileLayer("https://mt1.google.com/vt?lyrs=h@159000000,traffic|seconds_into_week:-1&style=3&x={x}&y={y}&z={z}",{
-//     attribution: ' Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">Censo 2024 INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
-//      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
-//     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
-
-// } );
-// var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png" ,{
-//     attribution: ' Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">Censo 2024 INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
-//      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
-//     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
-
-// });
-
-// var googleSat1 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',{
-//     attribution: 'Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">Censo 2024 INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
-//      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
-//     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
-
-// }).addTo(map);
-
-
-// var d = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}' ,{
-//     attribution: ' Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">Censo 2024 INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
-//      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
-//     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
-
-// });
 var googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}');
 
 // Función para crear capas con una atribución común
@@ -68,7 +22,7 @@ var commonAttribution = 'Análisis y Gestión Territorial - Datum WGS-84 Proyecc
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
-    '<a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
+    ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
 
 // Definición de las capas
 var googleStreets = createTileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", commonAttribution);
@@ -153,13 +107,13 @@ var hotspotsLayer = L.esri.featureLayer({
       // Ejemplo de formato: "2024-01-01T12:00:00Z"
   
       // Crear el popup con la fecha formateada
-      layer.bindPopup("Acquisition Time: " + acqTime);
+      layer.bindPopup("Acquisition Time Hora UTC: " + acqTime);
       
       // Crear un ícono rojo usando L.divIcon
       var redIcon = L.divIcon({
         className: 'custom-icon',  // Puedes agregar una clase CSS si es necesario
         html: '<div style="background-color: red; width: 12px; height: 12px; border-radius: 50%;"></div>',
-        iconSize: [20, 20]  // Tamaño del ícono
+        iconSize: [30, 30]  // Tamaño del ícono
       });
     
       // Asignar el ícono rojo al marcador
@@ -260,6 +214,15 @@ var leyenda = L.control.Legend({
         url :        "data/plugins/images/puentes.png",
 
        },
+
+       {
+        label 		: "Actividad térmica detectada por los sensores VIIRS, últimos 7 días",
+        type 		: "image",
+        url :        "data/plugins/images/rojo.png",
+
+       },
+
+
 
         {
             label 		: "Manzana 0 a 50 personas",
