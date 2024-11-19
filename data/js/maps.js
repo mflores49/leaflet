@@ -138,24 +138,35 @@ cluster_Er.addLayer(edificacion_rural3p);
 
 
 var hotspotsLayer = L.esri.featureLayer({
-                                url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
-                                onEachFeature: function (feature, layer) {
-                                  // Verificar si acq_time es una marca de tiempo Unix
-                                  var acqTime = feature.properties.acq_time;
-                              
-                                  // Si acq_time es un número (marca de tiempo Unix en milisegundos)
-                                  if (typeof acqTime === 'number') {
-                                    acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
-                                    acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
-                                  }
-                              
-                                  // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
-                                  // Ejemplo de formato: "2024-01-01T12:00:00Z"
-                              
-                                  // Crear el popup con la fecha formateada
-                                  layer.bindPopup("Acquisition VIIRS Time hora UTC: " + acqTime);
-                                }
-                              }).addTo(map);
+    url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
+    onEachFeature: function (feature, layer) {
+      // Verificar si acq_time es una marca de tiempo Unix
+      var acqTime = feature.properties.acq_time;
+  
+      // Si acq_time es un número (marca de tiempo Unix en milisegundos)
+      if (typeof acqTime === 'number') {
+        acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
+        acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
+      }
+  
+      // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
+      // Ejemplo de formato: "2024-01-01T12:00:00Z"
+  
+      // Crear el popup con la fecha formateada
+      layer.bindPopup("Acquisition Time: " + acqTime);
+      
+      // Crear un ícono rojo usando L.divIcon
+      var redIcon = L.divIcon({
+        className: 'custom-icon',  // Puedes agregar una clase CSS si es necesario
+        html: '<div style="background-color: red; width: 12px; height: 12px; border-radius: 50%;"></div>',
+        iconSize: [20, 20]  // Tamaño del ícono
+      });
+    
+      // Asignar el ícono rojo al marcador
+      layer.setIcon(redIcon);
+    }
+  }).addTo(map);
+  
 
 
 //Agregar el control de coordenadas
