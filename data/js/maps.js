@@ -2,18 +2,18 @@
 
 var map = L.map("map", {
     center: [-41.529218, -72.810565], // Coordenadas del centro
-    zoom:10, // Nivel de zoom inicial
+    zoom:8, // Nivel de zoom inicial
     minZoom:7.5, // Nivel mínimo de zoom
     maxZoom: 16 // Nivel máximo de zoom
   });
   
 
 // var googleStreets = L.tileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}" ,{
-//     attribution: '  Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE | &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">Censo 2024 INE</a>| ' +
-//      '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
+//     attribution: 'Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE | &copy; <a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a>| ' +
+//      '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
 //      '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> |'+
 //     ' <a href=" https://firms.modaps.eosdis.nasa.gov/map/#d:today,today;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.87,-41.35,10.40z" target="_blank"> Firms-NASA hoy </a> | '+
-//     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
+//     ' <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank"> Linkedin </a> '       
 
 // });
 
@@ -63,12 +63,12 @@ function createTileLayer(url, attribution) {
 }
 
 // Atribución común para todas las capas
-var commonAttribution = 'Plataforma de Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
-    '<a href="https://censo2024.ine.gob.cl/" target="_blank">Censo INE</a>| ' +
-    '<a href="https://mapas.mop.gov.cl/" target="_blank">Mapas MOP</a> | ' +
+var commonAttribution = 'Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
+    '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a>| ' +
+    '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
-    'Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
+    '<a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
 
 // Definición de las capas
 var googleStreets = createTileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", commonAttribution);
