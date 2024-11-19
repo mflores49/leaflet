@@ -217,7 +217,7 @@ var leyenda = L.control.Legend({
        },
 
        {
-        label 		: "Actividad térmica detectada por los sensores VIIRS, últimos 7 días",
+        label 		: "Actividad térmica sensores NASA VIIRS, últimos 7 días",
         type 		: "image",
         url :        "data/plugins/images/rojo.png",
         layers		: hotspotsLayer
