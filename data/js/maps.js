@@ -18,7 +18,7 @@ function createTileLayer(url, attribution) {
 
 // Atribución común para todas las capas
 var commonAttribution = 'Análisis y Gestión Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
-    '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a>| ' +
+    '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
@@ -212,6 +212,7 @@ var leyenda = L.control.Legend({
         label 		: "Puentes MOP",
         type 		: "image",
         url :        "data/plugins/images/puentes.png",
+        layers		: puentes
 
        },
 
@@ -219,6 +220,7 @@ var leyenda = L.control.Legend({
         label 		: "Actividad térmica detectada por los sensores VIIRS, últimos 7 días",
         type 		: "image",
         url :        "data/plugins/images/rojo.png",
+        layers		: hotspotsLayer
 
        },
 
