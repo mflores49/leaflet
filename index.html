@@ -38,13 +38,15 @@
 <body>
     <div>
         <div>
-            <header>
-                <h6 class=" text-light p-1 my-1">"Plataforma de Análisis y Gestión Territorial, Distribución Vivienda Urbana-Rural, comuna de Puerto Montt INE" </h6>
-            </header>
+            <div id="header">
+                "Plataforma de Análisis y Gestión Territorial, Distribución Vivienda Urbana-Rural, comuna de Puerto
+                Montt INE"
+                <img src="data/plugins/images/icono.png" id="infoIcon" title="Para optar a actualizaciones, limpie temporales de su navegador." />
+            </div>
         </div>
 
     </div>
-  
+
 
     <div id="map">
         <script src="data/geojson/edificacion_rural3p.js"></script>
@@ -56,9 +58,9 @@
         <script src="data/simbologia/simbologia.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
         <script src="https://unpkg.com/shpjs/dist/shp.min.js"></script>
-        
+
         <script src="https://unpkg.com/esri-leaflet@2.5.3/dist/esri-leaflet.js"></script>
-        
+
         <!--         
         <script src="data/js/load_shapefile.js"></script> -->
 
@@ -68,11 +70,11 @@
     </div>
     <div id="controls">
         <input type="file" id="shapefile-input" accept=".zip">
-            <button id="show-button">Mostrar Shp</button>
-            <button id="clear-button">Borrar Shp</button>
-            
+        <button id="show-button">Mostrar Shp</button>
+        <button id="clear-button">Borrar Shp</button>
+
     </div>
-        <script src="data/js/load_shapefile.js"></script>
+    <script src="data/js/load_shapefile.js"></script>
     <footer>
 
     </footer>

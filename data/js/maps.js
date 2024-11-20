@@ -309,5 +309,10 @@ var leyenda = L.control.Legend({
     // Añadir el control al mapa
     locateControl.addTo(map);
 
+
+      // Evento para el ícono
+    document.getElementById('infoIcon').addEventListener('click', function () {
+        alert("Para optar a actualizaciones, limpie temporales de su navegador.");
+    });
  
 
