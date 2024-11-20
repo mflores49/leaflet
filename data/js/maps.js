@@ -1,6 +1,6 @@
 var map = L.map("map", {
     center: [-41.529218, -72.810565], // Coordenadas del centro
-    zoom:8, // Nivel de zoom inicial
+    zoom:9, // Nivel de zoom inicial
     minZoom:7.5, // Nivel mínimo de zoom
     maxZoom: 17 // Nivel máximo de zoom
   });
@@ -192,7 +192,7 @@ new L.Control.Scale({
 
 //añadir leyenda
 var leyenda = L.control.Legend({
-    position  :    "bottomleft",
+    position  :    "bottomright",
     collapsed :    true,
     legends   : [
 
