@@ -17,7 +17,7 @@ function createTileLayer(url, attribution) {
 }
 
 // Atribución común para todas las capas
-var commonAttribution = 'Planificación - Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
+var commonAttribution = 'Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
@@ -119,7 +119,7 @@ var hotspotsLayer = L.esri.featureLayer({
       // Asignar el ícono rojo al marcador
       layer.setIcon(redIcon);
     }
-  }).addTo(map);
+  });
   
 
 
@@ -196,18 +196,100 @@ var leyenda = L.control.Legend({
     collapsed :    true,
     legends   : [
 
+        {
+            label 		: "Manzana urbana 0 a 50 viviendas",
+            type 		: "rectangle",
+            fillColor	: "#f2f0f7",
+            fillOpacity	: 1,
+            weight		: 0.5,
+            color 		: "black",
+            opacity 	: 1,
+            // layers		: manzanas_ptomontt
+        },
+        {
+            label 		: "Manzana urbana 50 a 200 viviendas",
+            type 		: "rectangle",
+            fillColor	: "#cbc9e2",
+            fillOpacity	: 0.5,
+            weight		: 0.5,
+            color 		: "black",
+            opacity 	: 1,
+            // layers		: manzanas_ptomontt 
+        },
+    
+        {
+            label 		: "Manzana urbana 200 a 400 viviendas",
+            type 		: "rectangle",
+            fillColor	: "#9e9ac8",
+            fillOpacity	: 0.5,
+            weight		: 0.5,
+            color 		: "black",
+            opacity 	: 1,
+            // layers		: manzanas_ptomontt 
+        },
+      
+        {
+            label 		: "Manzana urbana 400 a 600 viviendas",
+            type 		: "rectangle",
+            fillColor	: "#756bb1",
+            fillOpacity	: 0.5,
+            weight		: 0.5,
+            color 		: "black",
+            opacity 	: 1,
+            // layers		: manzanas_ptomontt 
+        },
+    
+        {
+            label 		: "Manzana urbana 600 viviendas y más",
+            type 		: "rectangle",
+            fillColor	: "#54278f",
+            fillOpacity	: 0.5,
+            weight		: 0.5,
+            color 		: "#54278f",
+            opacity 	: 1,
+            // layers		: manzanas_ptomontt 
+        },
+
        {
-        label 		: "Vivienda, vivienda colectiva y/o edificación",
+        label 		: "Vivienda, vivienda colectiva y/o edificación rural",
         type 		: "image",
         url :        "data/plugins/images/marcador.png",
+        // layers		: cluster_Er 
 
        },
        {
-        label 		: "Vivienda otros usos",
+        label 		: "Vivienda rural otros usos",
         type 		: "image",
         url :        "data/plugins/images/marcador3.png",
+        // layers		: cluster_Er
 
        },
+    
+
+       {
+        label 		: "Cluster Vivienda Rural alto",
+        type 		: "image",
+        url :        "data/plugins/images/naranjo.png",
+        // layers		: cluster_Er
+
+       },
+
+       {
+        label 		: "Cluster Vivienda Rural medio",
+        type 		: "image",
+        url :        "data/plugins/images/amarillo.png",
+        // layers		: cluster_Er
+
+       },
+
+       {
+        label 		: "Cluster Vivienda Rural bajo",
+        type 		: "image",
+        url :        "data/plugins/images/verde.png",
+        // layers		: cluster_Er
+
+       },
+
        {
         label 		: "Puentes MOP",
         type 		: "image",
@@ -224,60 +306,7 @@ var leyenda = L.control.Legend({
 
        },
 
-
-       {
-        label 		: "Manzana urbana 0 a 50 viviendas",
-        type 		: "rectangle",
-        fillColor	: "#f2f0f7",
-        fillOpacity	: 1,
-        weight		: 0.5,
-        color 		: "black",
-        opacity 	: 1,
-        // layers		: manzanas_ptomontt
-    },
-    {
-        label 		: "Manzana urbana 50 a 200 viviendas",
-        type 		: "rectangle",
-        fillColor	: "#cbc9e2",
-        fillOpacity	: 0.5,
-        weight		: 0.5,
-        color 		: "black",
-        opacity 	: 1,
-        // layers		: manzanas_ptomontt 
-    },
-
-    {
-        label 		: "Manzana urbana 200 a 400 viviendas",
-        type 		: "rectangle",
-        fillColor	: "#9e9ac8",
-        fillOpacity	: 0.5,
-        weight		: 0.5,
-        color 		: "black",
-        opacity 	: 1,
-        // layers		: manzanas_ptomontt 
-    },
-  
-    {
-        label 		: "Manzana urbana 400 a 600 viviendas",
-        type 		: "rectangle",
-        fillColor	: "#756bb1",
-        fillOpacity	: 0.5,
-        weight		: 0.5,
-        color 		: "black",
-        opacity 	: 1,
-        // layers		: manzanas_ptomontt 
-    },
-
-    {
-        label 		: "Manzana urbana 600 viviendas y más",
-        type 		: "rectangle",
-        fillColor	: "#54278f",
-        fillOpacity	: 0.5,
-        weight		: 0.5,
-        color 		: "#54278f",
-        opacity 	: 1,
-        // layers		: manzanas_ptomontt 
-    },
+       
 ]
 }).addTo(map);
 
