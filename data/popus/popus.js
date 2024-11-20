@@ -44,9 +44,10 @@ function popuslocalidad(feature, layer){
  }
 // Crear popus para el Geojson manzanas censales
 function popusmanzana(feature, layer){
-    if(feature.properties && feature.properties.mperson && feature.properties.mhombres && feature.properties.mmujeres && feature.properties.mtotal_viv){
+    if(feature.properties && feature.properties.id_mz && feature.properties.mperson && feature.properties.mhombres && feature.properties.mmujeres && feature.properties.mtotal_viv){
         var popupContent1 = 
-							"<b> Personas: </b>" 		    + feature.properties.mperson					+
+							"<b> ID Manzana: </b>" 		    + feature.properties.id_mz					+
+							"<br><b> Personas: </b>" 		    + feature.properties.mperson					+
 							"<br><b>Hombres: </b>" 			    + feature.properties.mhombres               +             	
                             "<br><b>Mujeres: </b>" 		        + feature.properties.mmujeres 				+
 							"<br><b>Total_Viviendas: </b>" 	    + feature.properties.mtotal_viv             	;	

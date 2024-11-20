@@ -14,25 +14,26 @@ function cargarstyleentidad(feature){
 
 //Funcion para obtener colores basados en el valor de total personas MANZANAS
 
-function manzanas_ptomontt1(mperson){
-    return  mperson  <= 50   ?  "#edf8fb" :
-            mperson  <= 100  ?  "#b3cde3" :   
-            mperson  <= 400  ?  "#8c96c6" :
-            mperson  <= 800  ?  "#8856a7" :
-                                "#810f7c" ;
+function manzanas_ptomontt1(mtotal_viv){
+    return  mtotal_viv  <= 50   ?  "#f2f0f7" :
+            mtotal_viv  <= 200  ?  "#cbc9e2" :   
+            mtotal_viv  <= 400  ?  "#9e9ac8" :
+            mtotal_viv  <= 600  ?  "#756bb1" :
+                                   "#54278f" ;
 
 };
-// Funcion para aplicar los colores segun los valores de personas por MANZANAS
+// Funcion para aplicar los colores segun los valores de viviendas por MANZANAS
 function cargarstylemanzana(feature){
     return {
-        fillColor : manzanas_ptomontt1(feature.properties.mperson),
-        fillOpacity : 0.6,
+        fillColor : manzanas_ptomontt1(feature.properties.mtotal_viv),
+        fillOpacity : 0.7,
         color : "white",
         weight :0.1,
-        opacity: 1,
+        opacity: 0.1,
         //dashArray : "5, 5"
     };
 };
+
 
 
 

@@ -17,7 +17,7 @@ function createTileLayer(url, attribution) {
 }
 
 // Atribución común para todas las capas
-var commonAttribution = 'Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
+var commonAttribution = 'Planificación - Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
@@ -225,63 +225,61 @@ var leyenda = L.control.Legend({
        },
 
 
+       {
+        label 		: "Manzana urbana 0 a 50 viviendas",
+        type 		: "rectangle",
+        fillColor	: "#f2f0f7",
+        fillOpacity	: 1,
+        weight		: 0.5,
+        color 		: "black",
+        opacity 	: 1,
+        // layers		: manzanas_ptomontt
+    },
+    {
+        label 		: "Manzana urbana 50 a 200 viviendas",
+        type 		: "rectangle",
+        fillColor	: "#cbc9e2",
+        fillOpacity	: 0.5,
+        weight		: 0.5,
+        color 		: "black",
+        opacity 	: 1,
+        // layers		: manzanas_ptomontt 
+    },
 
-        {
-            label 		: "Manzana 0 a 50 personas",
-            type 		: "rectangle",
-            fillColor	: "#edf8fb",
-            fillOpacity	: 1,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            layers		: manzanas_ptomontt
-        },
-        {
-            label 		: "Manzana 50 a 100 personas",
-            type 		: "rectangle",
-            fillColor	: "#b3cde3",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            layers		: manzanas_ptomontt 
-        },
+    {
+        label 		: "Manzana urbana 200 a 400 viviendas",
+        type 		: "rectangle",
+        fillColor	: "#9e9ac8",
+        fillOpacity	: 0.5,
+        weight		: 0.5,
+        color 		: "black",
+        opacity 	: 1,
+        // layers		: manzanas_ptomontt 
+    },
+  
+    {
+        label 		: "Manzana urbana 400 a 600 viviendas",
+        type 		: "rectangle",
+        fillColor	: "#756bb1",
+        fillOpacity	: 0.5,
+        weight		: 0.5,
+        color 		: "black",
+        opacity 	: 1,
+        // layers		: manzanas_ptomontt 
+    },
 
-        {
-            label 		: "Manzana 100 a 400 personas",
-            type 		: "rectangle",
-            fillColor	: "#8c96c6",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            layers		: manzanas_ptomontt 
-        },
-      
-        {
-            label 		: "Manzana 400 a 800 personas",
-            type 		: "rectangle",
-            fillColor	: "#8856a7",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            layers		: manzanas_ptomontt 
-        },
-
-        {
-            label 		: "Manzana más 1000 personas",
-            type 		: "rectangle",
-            fillColor	: "#810f7c",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            layers		: manzanas_ptomontt 
-        },
-    ]
+    {
+        label 		: "Manzana urbana 600 viviendas y más",
+        type 		: "rectangle",
+        fillColor	: "#54278f",
+        fillOpacity	: 0.5,
+        weight		: 0.5,
+        color 		: "#54278f",
+        opacity 	: 1,
+        // layers		: manzanas_ptomontt 
+    },
+]
 }).addTo(map);
-
 
 
     // Añadir el control de localización
@@ -294,14 +292,14 @@ var leyenda = L.control.Legend({
         markerStyle: {
             // Estilo del marcador
             radius: 15,
-            color: '#ff7800',
-            weight: 1,
+            color: '#ff6a00',
+            weight: 2,
             opacity: 1,
             fillOpacity: 0.8
         },
         circleStyle: {
             // Estilo del círculo
-            color: '#ff7800',
+            color: '#ed1109',
             weight: 1,
             opacity: 0.5,
             fillOpacity: 0.2
