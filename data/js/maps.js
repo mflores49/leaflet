@@ -259,10 +259,10 @@ L.control.coordinates(
 
 //Agregar control de Geocodificación
 L.Control.geocoder({
-    position		: "topleft",
-    placeholder		: "Buscar direccion...",
-    errorMessage	: "No se encontraron resultados de su dirección"
-}).addTo(map);
+        position		: "topleft",
+        placeholder		: "Buscar direccion...",
+        errorMessage	: "No se encontraron resultados de su dirección"
+        }).addTo(map);
 
 
 
@@ -291,23 +291,21 @@ var layers = {
 
 L.control.layers(baseMaps, layers).addTo(map); 
 
-// // top
-// bottomleft
-// bottomright
+
 
 // agregar miniatura map
 
 new L.Control.MiniMap(googleStreets,{
     toggleDisplay	: true,
     minimized		: true,
-    position		: "bottomleft"
-}).addTo(map);
+    position		: "bottomright"
+    }).addTo(map);
 
 // agregar escala mapa
 new L.Control.Scale({
-        imperial: false,
-         position		: "bottomleft"
-}).addTo(map);
+        imperial        : false,
+        position		: "bottomright"
+        }).addTo(map);
 
 
 
