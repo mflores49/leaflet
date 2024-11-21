@@ -17,7 +17,7 @@ function createTileLayer(url, attribution) {
 }
 
 // Atribución común para todas las capas
-var commonAttribution = 'Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
+var commonAttribution = 'Planificación Territorial - Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
