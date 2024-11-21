@@ -345,3 +345,4 @@ var leyenda = L.control.Legend({
     });
  
 
+    L.control.ruler().addTo(map);
