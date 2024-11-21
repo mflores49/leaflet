@@ -137,6 +137,22 @@ L.control.coordinates(
 }
 ).addTo(map);
 
+
+
+// agregar escala mapa
+new L.Control.Scale({
+        imperial        : false,
+        position		: "bottomright"
+        }).addTo(map);
+
+// agregar miniatura map
+
+new L.Control.MiniMap(googleStreets,{
+    toggleDisplay	: true,
+    minimized		: true,
+    position		: "bottomright"
+    }).addTo(map);
+
     //añadir leyenda
     var leyenda = L.control.Legend({
         position  :    "bottomright",
@@ -293,19 +309,6 @@ L.control.layers(baseMaps, layers).addTo(map);
 
 
 
-// agregar miniatura map
-
-new L.Control.MiniMap(googleStreets,{
-    toggleDisplay	: true,
-    minimized		: true,
-    position		: "bottomright"
-    }).addTo(map);
-
-// agregar escala mapa
-new L.Control.Scale({
-        imperial        : false,
-        position		: "bottomright"
-        }).addTo(map);
 
 
 
@@ -345,15 +348,15 @@ new L.Control.Scale({
     });
  
 
-    L.control.ruler({
-        position: 'topleft',
-        language: {
-          km: 'kilómetros',  // Cambia "km" por "kilómetros"
-          m: 'metros',       // Cambia "m" por "metros"
-          nm: 'millas náuticas',
-          ft: 'pies'
-        }
-      }).addTo(map);
+    // L.control.ruler({
+    //     position: 'topleft',
+    //     language: {
+    //       km: 'kilómetros',  // Cambia "km" por "kilómetros"
+    //       m: 'metros',       // Cambia "m" por "metros"
+    //       nm: 'millas náuticas',
+    //       ft: 'pies'
+    //     }
+    //   }).addTo(map);
 
 
-    // L.control.ruler().addTo(map);
+     L.control.ruler().addTo(map);
