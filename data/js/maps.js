@@ -137,6 +137,125 @@ L.control.coordinates(
 }
 ).addTo(map);
 
+    //añadir leyenda
+    var leyenda = L.control.Legend({
+        position  :    "bottomright",
+        collapsed :    true,
+        legends   : [
+    
+            {
+                label 		: "Manzana urbana 0 a 50 viviendas",
+                type 		: "rectangle",
+                fillColor	: "#f2f0f7",
+                fillOpacity	: 1,
+                weight		: 0.5,
+                color 		: "black",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt
+            },
+            {
+                label 		: "Manzana urbana 50 a 200 viviendas",
+                type 		: "rectangle",
+                fillColor	: "#cbc9e2",
+                fillOpacity	: 0.5,
+                weight		: 0.5,
+                color 		: "black",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt 
+            },
+        
+            {
+                label 		: "Manzana urbana 200 a 400 viviendas",
+                type 		: "rectangle",
+                fillColor	: "#9e9ac8",
+                fillOpacity	: 0.5,
+                weight		: 0.5,
+                color 		: "black",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt 
+            },
+          
+            {
+                label 		: "Manzana urbana 400 a 600 viviendas",
+                type 		: "rectangle",
+                fillColor	: "#756bb1",
+                fillOpacity	: 0.5,
+                weight		: 0.5,
+                color 		: "black",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt 
+            },
+        
+            {
+                label 		: "Manzana urbana 600 viviendas y más",
+                type 		: "rectangle",
+                fillColor	: "#54278f",
+                fillOpacity	: 0.5,
+                weight		: 0.5,
+                color 		: "#54278f",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt 
+            },
+    
+           {
+            label 		: "Vivienda, vivienda colectiva y/o edificación rural",
+            type 		: "image",
+            url :        "data/plugins/images/marcador.png",
+            // layers		: cluster_Er 
+    
+           },
+           {
+            label 		: "Vivienda rural otros usos",
+            type 		: "image",
+            url :        "data/plugins/images/marcador3.png",
+            // layers		: cluster_Er
+    
+           },
+        
+    
+           {
+            label 		: "Cluster Vivienda Rural alto",
+            type 		: "image",
+            url :        "data/plugins/images/naranjo.png",
+            // layers		: cluster_Er
+    
+           },
+    
+           {
+            label 		: "Cluster Vivienda Rural medio",
+            type 		: "image",
+            url :        "data/plugins/images/amarillo.png",
+            // layers		: cluster_Er
+    
+           },
+    
+           {
+            label 		: "Cluster Vivienda Rural bajo",
+            type 		: "image",
+            url :        "data/plugins/images/verde.png",
+            // layers		: cluster_Er
+    
+           },
+    
+           {
+            label 		: "Puentes MOP",
+            type 		: "image",
+            url :        "data/plugins/images/puentes.png",
+            layers		: puentes
+    
+           },
+    
+           {
+            label 		: "Actividad térmica sensores NASA VIIRS, últimos 7 días",
+            type 		: "image",
+            url :        "data/plugins/images/rojo.png",
+            layers		: hotspotsLayer
+    
+           },
+    
+           
+    ]
+    }).addTo(map);
 
 //Agregar control de Geocodificación
 L.Control.geocoder({
@@ -172,143 +291,26 @@ var layers = {
 
 L.control.layers(baseMaps, layers).addTo(map); 
 
-
-
+// // top
+// bottomleft
+// bottomright
 
 // agregar miniatura map
 
 new L.Control.MiniMap(googleStreets,{
     toggleDisplay	: true,
     minimized		: true,
-    position		: "bottomright"
+    position		: "bottomleft"
 }).addTo(map);
 
 // agregar escala mapa
 new L.Control.Scale({
         imperial: false,
-         position		: "bottomright"
+         position		: "bottomleft"
 }).addTo(map);
 
 
-//añadir leyenda
-var leyenda = L.control.Legend({
-    position  :    "bottomright",
-    collapsed :    true,
-    legends   : [
 
-        {
-            label 		: "Manzana urbana 0 a 50 viviendas",
-            type 		: "rectangle",
-            fillColor	: "#f2f0f7",
-            fillOpacity	: 1,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            // layers		: manzanas_ptomontt
-        },
-        {
-            label 		: "Manzana urbana 50 a 200 viviendas",
-            type 		: "rectangle",
-            fillColor	: "#cbc9e2",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            // layers		: manzanas_ptomontt 
-        },
-    
-        {
-            label 		: "Manzana urbana 200 a 400 viviendas",
-            type 		: "rectangle",
-            fillColor	: "#9e9ac8",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            // layers		: manzanas_ptomontt 
-        },
-      
-        {
-            label 		: "Manzana urbana 400 a 600 viviendas",
-            type 		: "rectangle",
-            fillColor	: "#756bb1",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "black",
-            opacity 	: 1,
-            // layers		: manzanas_ptomontt 
-        },
-    
-        {
-            label 		: "Manzana urbana 600 viviendas y más",
-            type 		: "rectangle",
-            fillColor	: "#54278f",
-            fillOpacity	: 0.5,
-            weight		: 0.5,
-            color 		: "#54278f",
-            opacity 	: 1,
-            // layers		: manzanas_ptomontt 
-        },
-
-       {
-        label 		: "Vivienda, vivienda colectiva y/o edificación rural",
-        type 		: "image",
-        url :        "data/plugins/images/marcador.png",
-        // layers		: cluster_Er 
-
-       },
-       {
-        label 		: "Vivienda rural otros usos",
-        type 		: "image",
-        url :        "data/plugins/images/marcador3.png",
-        // layers		: cluster_Er
-
-       },
-    
-
-       {
-        label 		: "Cluster Vivienda Rural alto",
-        type 		: "image",
-        url :        "data/plugins/images/naranjo.png",
-        // layers		: cluster_Er
-
-       },
-
-       {
-        label 		: "Cluster Vivienda Rural medio",
-        type 		: "image",
-        url :        "data/plugins/images/amarillo.png",
-        // layers		: cluster_Er
-
-       },
-
-       {
-        label 		: "Cluster Vivienda Rural bajo",
-        type 		: "image",
-        url :        "data/plugins/images/verde.png",
-        // layers		: cluster_Er
-
-       },
-
-       {
-        label 		: "Puentes MOP",
-        type 		: "image",
-        url :        "data/plugins/images/puentes.png",
-        layers		: puentes
-
-       },
-
-       {
-        label 		: "Actividad térmica sensores NASA VIIRS, últimos 7 días",
-        type 		: "image",
-        url :        "data/plugins/images/rojo.png",
-        layers		: hotspotsLayer
-
-       },
-
-       
-]
-}).addTo(map);
 
 
     // Añadir el control de localización
@@ -339,7 +341,7 @@ var leyenda = L.control.Legend({
     locateControl.addTo(map);
 
 
-      // Evento para el ícono
+      // Evento para el ícono i
     document.getElementById('infoIcon').addEventListener('click', function () {
         alert("Para optar a actualizaciones, limpie temporales de su navegador.");
     });
