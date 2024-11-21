@@ -153,7 +153,10 @@ new L.Control.MiniMap(googleStreets,{
     position		: "bottomright"
     }).addTo(map);
 
+
+
     //añadir leyenda
+
     var leyenda = L.control.Legend({
         position  :    "bottomright",
         collapsed :    true,
@@ -359,4 +362,4 @@ L.control.layers(baseMaps, layers).addTo(map);
     //   }).addTo(map);
 
 
-     L.control.ruler().addTo(map);
+     L.control.ruler({position: 'bottomright'}).addTo(map);
