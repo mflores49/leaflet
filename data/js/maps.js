@@ -7,7 +7,7 @@ var map = L.map("map", {
   
 
 
-var googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}');
+var googleStreets = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}');
 
 // Función para crear capas con una atribución común
 function createTileLayer(url, attribution) {
@@ -25,7 +25,7 @@ var commonAttribution = 'Planificación Territorial - Seguimiento Riesgos y Amen
     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
 
 // Definición de las capas
-var googleStreets = createTileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", commonAttribution);
+// var googleStreets = createTileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", commonAttribution);
 var traffic = createTileLayer("https://mt1.google.com/vt?lyrs=h@159000000,traffic|seconds_into_week:-1&style=3&x={x}&y={y}&z={z}", commonAttribution);
 var osm = createTileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", commonAttribution);
 var googleSat1 = createTileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', commonAttribution);
@@ -153,7 +153,7 @@ var baseMaps = {
     "Desactivar Mapas Base" : L.layerGroup([]),
     "Google Satelital"      : googleSat1,
     "OpenStreetMap"         : osm,
-    "Google Streets"        : googleStreets,
+    // "Google Streets"        : googleStreets,
     "Google Traffic"        : traffic,
     "Esri Topográfico"       : d,
                           
@@ -177,7 +177,7 @@ L.control.layers(baseMaps, layers).addTo(map);
 
 // agregar miniatura map
 
-new L.Control.MiniMap(googleSat,{
+new L.Control.MiniMap(googleStreets,{
     toggleDisplay	: true,
     minimized		: true,
     position		: "bottomright"
