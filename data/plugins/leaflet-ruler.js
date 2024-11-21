@@ -28,13 +28,13 @@
         display: 'km',
         decimal: 2,
         factor: null,
-        label: 'Distance:'
+        label: 'Distancia:'
       },
       angleUnit: {
         display: '&deg;',
         decimal: 2,
         factor: null,
-        label: 'Bearing:'
+        label: 'Azimut:'
       }
     },
     isActive: function () {

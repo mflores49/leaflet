@@ -345,4 +345,15 @@ var leyenda = L.control.Legend({
     });
  
 
-    L.control.ruler().addTo(map);
+    L.control.ruler({
+        position: 'topleft',
+        language: {
+          km: 'kilómetros',  // Cambia "km" por "kilómetros"
+          m: 'metros',       // Cambia "m" por "metros"
+          nm: 'millas náuticas',
+          ft: 'pies'
+        }
+      }).addTo(map);
+
+
+    // L.control.ruler().addTo(map);
