@@ -362,4 +362,4 @@ L.control.layers(baseMaps, layers).addTo(map);
     //   }).addTo(map);
 
 
-     L.control.ruler({position: 'bottomright'}).addTo(map);
+    //  L.control.ruler({position: 'bottomright'}).addTo(map);
