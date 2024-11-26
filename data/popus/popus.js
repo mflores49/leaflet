@@ -58,7 +58,27 @@ function popusmanzana(feature, layer){
 	layer.bindPopup(popupContent1);
 	}
 
+      
         
+        
+}
+
+// Crear popus para el Geojson red_hidrica
+function popusredhidrica(feature, layer){
+    if(feature.properties && feature.properties.nombre_mop ){
+        var popupContent1 = "<b> Red Hídrica </b>" 		    + 
+							// "<br><b> ID Manzana: </b>" 		    + feature.properties.id_mz					+
+							"<br><b> Nombre: </b>" 		    + feature.properties.nombre_mop					;
+					
+						
+							
+                            ;	
+										
+
+	layer.bindPopup(popupContent1);
+	}
+
+      
         
         
 }

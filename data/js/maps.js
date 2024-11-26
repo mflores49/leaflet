@@ -44,7 +44,8 @@ var comunas        = L.geoJson(comunas,{
 
 
 var red_hidrica        = L.geoJson(red_hidrica,{
-    style : red_hidrica_style
+    style : red_hidrica_style,
+    onEachFeature : popusredhidrica
     
 
    }).addTo(map);  
@@ -169,6 +170,26 @@ new L.Control.MiniMap(googleStreets,{
         collapsed :    true,
         legends   : [
     
+            {
+                label 		: "Red Hídrica - IDE Chile 2022",
+                type 		: "polyline",
+                fillColor	: "#f2f0f7",
+                fillOpacity	: 1,
+                weight		: 0.5,
+                color 		: "blue",
+                opacity 	: 1,
+                //layers		: red_hidrica,
+            },
+            {
+                label 		: "Manzana urbana 0 a 50 viviendas",
+                type 		: "rectangle",
+                fillColor	: "#f2f0f7",
+                fillOpacity	: 1,
+                weight		: 0.5,
+                color 		: "black",
+                opacity 	: 1,
+                // layers		: manzanas_ptomontt
+            },
             {
                 label 		: "Manzana urbana 0 a 50 viviendas",
                 type 		: "rectangle",
@@ -307,12 +328,12 @@ var baseMaps = {
 var layers = {
         
         "Comunas" : comunas,
-        "Red Hídrica" :  red_hidrica, 
+        "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
         "Localidad Censal INE -  Censo 2017" : localidades_ptomontt,  
         "Manzanas Censal INE -  Censo 2017"   : manzanas_ptomontt,
         "Cluster Edificación Rural INE - PreCenso 2023"		: cluster_Er, 
         "Puentes MOP año 2020"		: puentes,
-        "Puntos de Calor 7 días VIIRS-NASA (Hotspots)": hotspotsLayer,
+        "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
        
 };
  
