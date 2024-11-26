@@ -17,7 +17,7 @@ function createTileLayer(url, attribution) {
 }
 
 // Atribución común para todas las capas
-var commonAttribution = 'Planificación Territorial - Seguimiento Riesgos y Amenazas - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
+var commonAttribution = 'Planificación Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
@@ -233,7 +233,7 @@ new L.Control.MiniMap(googleStreets,{
         
     
            {
-            label 		: "Cluster Vivienda Rural alto",
+            label 		: "Cluster alto vivienda rural",
             type 		: "image",
             url :        "data/plugins/images/naranjo.png",
             // layers		: cluster_Er
@@ -241,7 +241,7 @@ new L.Control.MiniMap(googleStreets,{
            },
     
            {
-            label 		: "Cluster Vivienda Rural medio",
+            label 		: "Cluster medio vivienda rural",
             type 		: "image",
             url :        "data/plugins/images/amarillo.png",
             // layers		: cluster_Er
@@ -249,7 +249,7 @@ new L.Control.MiniMap(googleStreets,{
            },
     
            {
-            label 		: "Cluster Vivienda Rural bajo",
+            label 		: "Cluster bajo vivienda rural",
             type 		: "image",
             url :        "data/plugins/images/verde.png",
             // layers		: cluster_Er
