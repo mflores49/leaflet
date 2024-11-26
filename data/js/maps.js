@@ -48,7 +48,7 @@ var red_hidrica        = L.geoJson(red_hidrica,{
     onEachFeature : popusredhidrica
     
 
-   }).addTo(map);  
+   });  
 
 
 var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
