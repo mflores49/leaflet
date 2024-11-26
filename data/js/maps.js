@@ -42,7 +42,14 @@ var comunas        = L.geoJson(comunas,{
 
                     }).addTo(map); 
 
-                  
+
+var red_hidrica        = L.geoJson(red_hidrica,{
+    style : red_hidrica_style
+    
+
+   }).addTo(map);  
+
+
 var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
     
                         style : localidad_style,
@@ -300,11 +307,13 @@ var baseMaps = {
 var layers = {
         
         "Comunas" : comunas,
+        "Red Hídrica" :  red_hidrica, 
         "Localidad Censal INE -  Censo 2017" : localidades_ptomontt,  
         "Manzanas Censal INE -  Censo 2017"   : manzanas_ptomontt,
         "Cluster Edificación Rural INE - PreCenso 2023"		: cluster_Er, 
         "Puentes MOP año 2020"		: puentes,
         "Puntos de Calor 7 días VIIRS-NASA (Hotspots)": hotspotsLayer,
+       
 };
  
 

@@ -47,6 +47,14 @@ function cargarstylemanzana(feature){
 
 
 //Crear estilo simple para polígonos (comunas)
+var red_hidrica_style = {
+	color		: "#2c7fb8",
+	weight		: 1.3,
+	//dashArray	: "5, 10, 1",
+	fillOpacity	: 0
+};
+
+//Crear estilo simple para polígonos (comunas)
 var red_vial_style = {
 	color		: "#b1a737",
 	weight		: 1.5,
