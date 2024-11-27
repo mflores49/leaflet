@@ -2,7 +2,7 @@
 function popussalud(feature, layer){
     if(feature.properties  && feature.properties.ETIPO && feature.properties.AMBITO && feature.properties.NOMBRE && feature.properties.DEP_ADM){
         		
-		var popupContent =  "<b> Red Salud Minsal 2024 - IDE Chile</b>" 		    + 
+		var popupContent =  "<b> Red Salud Minsal 2024</b>" 		    + 
 							"<b><br>Tipo: </b>" 					+ feature.properties.ETIPO 				+
 							"<br><b>Ambito : </b>" 				+ feature.properties.AMBITO 			+
 							"<br><b>Nombre :</b>" 				+ feature.properties.NOMBRE			    +	
@@ -79,12 +79,11 @@ function popusredhidrica(feature, layer){
 }
 
 
-// && feature.properties.LARGO && feature.properties.ANCHO_TOTAL && feature.properties.MAT_ESTRIB && feature.properties.MAT_CEPAS && feature.properties.NUM_CEPAS && feature.properties.PISO && feature.properties.MAT_VIGAS
 
 function popuspuentes(feature, layer){
     if(feature.properties && feature.properties.NOMBRE_PUE && feature.properties.ROL && feature.properties.NOMBRE_CAM && feature.properties.MAT_ESTRIB && feature.properties.MAT_CEPAS  && feature.properties.PISO && feature.properties.MAT_VIGAS){
-        var popupContent2 = "<b> Puentes MOP año 2020 </b>" 		    + 
-							"<b> Nombre puente: </b>" 					+ feature.properties.NOMBRE_PUE		    	+
+        var popupContent2 = "<b> Puentes MOP 2020 </b>" 		    + 
+							"<b><br> Nombre puente: </b>" 				+ feature.properties.NOMBRE_PUE		    	+
 							"<br><b> Rol: </b>" 		     			+ feature.properties.ROL					+
 							"<br><b>Nombre camino: </b>" 			    + feature.properties.NOMBRE_CAM             +   
 							"<br><b>Material Estribo: </b>" 			+ feature.properties.MAT_ESTRIB          	+ 

@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "cuerpos",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 266.0, "NOMBRE_DEL": "Puerto Montt", "TIPO_DE_VL": "Calle", "NUMERACIó": "S/n", "NOMBRE_DE": "Antonio Varas y San Felipe", "COMUNA": "Puerto Montt", "PROVINCIA": "Llanquihue", "REGIóN": "Región de los Lagos", "FID_CL_COM": 292.0, "ID_2002": "10101", "NOMBRE": "Puerto Montt", "FID_CL_REG": 12.0, "ID_2002_20": "10", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.937216719244546, -41.471553815795666 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 299.0, "NOMBRE_DEL": "Carretera Austral", "TIPO_DE_VL": "Pasaje", "NUMERACIó": "S/n", "NOMBRE_DE": "Población Rio mar", "COMUNA": "Puerto Montt", "PROVINCIA": "Llanquihue", "REGIóN": "Región de los Lagos", "FID_CL_COM": 292.0, "ID_2002": "10101", "NOMBRE": "Puerto Montt", "FID_CL_REG": 12.0, "ID_2002_20": "10", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.841765603550925, -41.471605255760352 ] } }
+]
+}

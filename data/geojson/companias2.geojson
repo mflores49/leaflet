@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "companias2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID_1": 84.0, "CUT_CIA": "1013501", "COMPANIA": "Primera de Carretera Austral", "DIRECCION": "Poblacion Rio Mar S/N, Chamiza", "TELEFONO": "(65) 710460", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.851686740649882, -41.484647901729844 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 85.0, "CUT_CIA": "1010105", "COMPANIA": "Quinta de Puerto Montt", "DIRECCION": "Las Margarita 1935 de la poblacion Mirasol", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.964389577931158, -41.473005366788129 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 86.0, "CUT_CIA": "1010106", "COMPANIA": "Sexta de Puerto Montt", "DIRECCION": "Chorrillos 1339", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.952032549326404, -41.472722656410362 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 89.0, "CUT_CIA": "1010102", "COMPANIA": "Segunda de Puerto Montt", "DIRECCION": "San felipe/Antonio Varas", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.934669636239249, -41.467664625869389 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 90.0, "CUT_CIA": "1040404", "COMPANIA": "Cuarta de Puerto Montt", "DIRECCION": null, "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.934674635612609, -41.467641314778795 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 91.0, "CUT_CIA": "1010101", "COMPANIA": "Primera de Puerto Montt", "DIRECCION": "Guillermo Gallardo 450", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.939966885574805, -41.463916035803329 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 92.0, "CUT_CIA": "1010107", "COMPANIA": "Septima de Puerto Montt", "DIRECCION": "Calle Buin 765, Poblacion Lintz", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.92210339154083, -41.46375855823802 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 94.0, "CUT_CIA": "1010103", "COMPANIA": "Tercera de Puerto Montt", "DIRECCION": "Avenida Presidente Ibañez esquina Quellon", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.928055568042822, -41.458909279718455 ] } },
+{ "type": "Feature", "properties": { "OBJECTID_1": 95.0, "CUT_CIA": "1010108", "COMPANIA": "Octava de Puerto Montt", "DIRECCION": "Calle Los Laureles S/N, Pob. Techo para Todos", "TELEFONO": "(65) 252818 65 287110", "NOMBRE": "Puerto Montt", "NOMBRE_1": "Los Lagos" }, "geometry": { "type": "Point", "coordinates": [ -72.957122136361718, -41.457586633728724 ] } }
+]
+}

@@ -74,7 +74,8 @@ var puentes       = L.geoJson(puentes, {
                     pointToLayer: function(feature, latlng){
                     return L.marker(latlng, {
         
-                     icon: puentes_icon })
+                     icon: puentes_icon
+                     })
         
         }
         
