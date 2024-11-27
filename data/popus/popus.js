@@ -2,7 +2,7 @@
 function popussalud(feature, layer){
     if(feature.properties  && feature.properties.ETIPO && feature.properties.AMBITO && feature.properties.NOMBRE && feature.properties.DEP_ADM){
         		
-		var popupContent =  "<b> Red Salud Minsal año 2024 - IDE Chile</b>" 		    + 
+		var popupContent =  "<b> Red Salud Minsal 2024 - IDE Chile</b>" 		    + 
 							"<b><br>Tipo: </b>" 					+ feature.properties.ETIPO 				+
 							"<br><b>Ambito : </b>" 				+ feature.properties.AMBITO 			+
 							"<br><b>Nombre :</b>" 				+ feature.properties.NOMBRE			    +	

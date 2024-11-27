@@ -48,7 +48,7 @@ var red_hidrica        = L.geoJson(red_hidrica,{
     onEachFeature : popusredhidrica
     
 
-   });  
+   }).addTo(map) ;  
 
 
 var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
@@ -76,7 +76,7 @@ var puentes       = L.geoJson(puentes, {
         
         }
         
-}); 
+}) ; 
 
 
 
@@ -176,6 +176,15 @@ new L.Control.MiniMap(googleStreets,{
         position  :    "bottomright",
         collapsed :    true,
         legends   : [
+
+
+            {
+                label 		: "Red de Salud Minsal 2024",
+                type 		: "image",
+                url         :  "data/plugins/images/salud.png",
+                layers		: red_salud
+        
+               },
     
             {
                 label 		: "Red Hídrica - IDE Chile 2022",
@@ -335,12 +344,12 @@ var baseMaps = {
 var layers = {
         
         "Comunas" : comunas,
-        "Red Salud" : red_salud,
+        "Red Salud - Minsal 2024" : red_salud,
         "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
-        "Localidad Censal INE -  Censo 2017" : localidades_ptomontt,  
-        "Manzanas Censal INE -  Censo 2017"   : manzanas_ptomontt,
-        "Cluster Edificación Rural INE - PreCenso 2023"		: cluster_Er, 
-        "Puentes MOP año 2020"		: puentes,
+        "Localidad Censo 2017 - INE" : localidades_ptomontt,  
+        "Manzanas Censo 2017 - INE"   : manzanas_ptomontt,
+        "Cluster Edificación Rural - PreCenso 2023 INE "		: cluster_Er, 
+        "Puentes MOP 2020"		: puentes,
         "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
         
        
