@@ -63,6 +63,23 @@ var red_vial_style = {
 };
 
 
+// //Crear estilo simple red salud
+// var red_salud_style = {
+// 	color		: "#ff334e",
+// 	weight		: 1.5,
+// 	//dashArray	: "5, 10, 1",
+// 	fillOpacity	: 0
+// };
+
+var red_salud_style = {
+    radius: 7, // Radio del círculo
+    fillColor: "#f7f7f7", // Color de relleno (rojo)
+    color: "#ff0000", // Color del borde (rojo)
+    weight: 2, // Grosor del borde
+    opacity: 1, // Opacidad del borde
+    fillOpacity: 0.8 // Opacidad del relleno
+};
+
 //Crear estilo simple para polígonos (por localidad )
 var localidad_style = {
 	color		: "#949701 ",

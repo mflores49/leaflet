@@ -78,6 +78,20 @@ var puentes       = L.geoJson(puentes, {
         
 }); 
 
+
+
+
+
+
+var red_salud = L.geoJson(red_salud, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, red_salud_style); // Crea un marcador circular con el estilo definido
+    },
+    onEachFeature : popussalud, // Si tienes pop-ups o eventos puedes habilitar onEachFeature:
+    // onEachFeature: popusmanzana
+}).addTo(map);
+
+
 var cluster_Er = L.markerClusterGroup();
 
 var edificacion_rural3p 	= L.geoJSON(edificacion_rural3p,{
@@ -90,13 +104,6 @@ cluster_Er.addLayer(edificacion_rural3p);
                             
                             
                             
-
-// var hotspotsLayer = L.esri.featureLayer({
-//                             url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0'
-//                             }).addTo(map);
-
-
-
 
 
 var hotspotsLayer = L.esri.featureLayer({
@@ -328,12 +335,14 @@ var baseMaps = {
 var layers = {
         
         "Comunas" : comunas,
+        "Red Salud" : red_salud,
         "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
         "Localidad Censal INE -  Censo 2017" : localidades_ptomontt,  
         "Manzanas Censal INE -  Censo 2017"   : manzanas_ptomontt,
         "Cluster Edificación Rural INE - PreCenso 2023"		: cluster_Er, 
         "Puentes MOP año 2020"		: puentes,
         "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
+        
        
 };
  
