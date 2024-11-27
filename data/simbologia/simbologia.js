@@ -79,7 +79,7 @@ var red_salud_style = {
 //Crear estilo simple para polígonos (por localidad )
 var localidad_style = {
 	color		: "#949701 ",
-	weight		: 2.5 ,
+	weight		: 1.5 ,
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
 };

@@ -20,6 +20,8 @@ function createTileLayer(url, attribution) {
 var commonAttribution = 'Planificación Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
+    '<a href=" " target="_blank">MINSAL</a> | ' +
+    '<a href="https://www.geoportal.cl/catalog" target="_blank">IDE CHILE</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
     ' Desarrollo <a href="https://www.linkedin.com/in/marcela-flores-ponce/" target="_blank">Linkedin</a>';
@@ -181,7 +183,7 @@ new L.Control.MiniMap(googleStreets,{
             {
                 label 		: "Red de Salud Minsal 2024",
                 type 		: "image",
-                url         :  "data/plugins/images/salud.png",
+                url         : "data/plugins/images/salud.png",
                 layers		: red_salud
         
                },
@@ -196,16 +198,7 @@ new L.Control.MiniMap(googleStreets,{
                 opacity 	: 1,
                 //layers		: red_hidrica,
             },
-            {
-                label 		: "Manzana urbana 0 a 50 viviendas",
-                type 		: "rectangle",
-                fillColor	: "#f2f0f7",
-                fillOpacity	: 1,
-                weight		: 0.5,
-                color 		: "black",
-                opacity 	: 1,
-                // layers		: manzanas_ptomontt
-            },
+          
             {
                 label 		: "Manzana urbana 0 a 50 viviendas",
                 type 		: "rectangle",
@@ -335,7 +328,6 @@ var baseMaps = {
     "Desactivar Mapas Base" : L.layerGroup([]),
     "Google Satelital"      : googleSat1,
     "OpenStreetMap"         : osm,
-    // "Google Streets"        : googleStreets,
     "Google Traffic"        : traffic,
     "Esri Topográfico"       : d,
                           
