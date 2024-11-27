@@ -2,7 +2,7 @@
 function popussalud(feature, layer){
     if(feature.properties  && feature.properties.ETIPO && feature.properties.AMBITO && feature.properties.NOMBRE && feature.properties.DEP_ADM){
         		
-		var popupContent =  "<b> Red Salud - IDE Chile 2024 </b>" 		    + 
+		var popupContent =  "<b> Red Salud Minsal año 2024 - IDE Chile</b>" 		    + 
 							"<b><br>Tipo: </b>" 					+ feature.properties.ETIPO 				+
 							"<br><b>Ambito : </b>" 				+ feature.properties.AMBITO 			+
 							"<br><b>Nombre :</b>" 				+ feature.properties.NOMBRE			    +	
@@ -83,7 +83,7 @@ function popusredhidrica(feature, layer){
 
 function popuspuentes(feature, layer){
     if(feature.properties && feature.properties.NOMBRE_PUE && feature.properties.ROL && feature.properties.NOMBRE_CAM && feature.properties.MAT_ESTRIB && feature.properties.MAT_CEPAS  && feature.properties.PISO && feature.properties.MAT_VIGAS){
-        var popupContent2 = "<b> Puentes Mop año 2020 </b>" 		    + 
+        var popupContent2 = "<b> Puentes MOP año 2020 </b>" 		    + 
 							"<b> Nombre puente: </b>" 					+ feature.properties.NOMBRE_PUE		    	+
 							"<br><b> Rol: </b>" 		     			+ feature.properties.ROL					+
 							"<br><b>Nombre camino: </b>" 			    + feature.properties.NOMBRE_CAM             +   
