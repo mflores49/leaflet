@@ -20,7 +20,7 @@ function createTileLayer(url, attribution) {
 var commonAttribution = 'Planificación Territorial - Datum WGS-84 Proyección Geográfica CHILE| &copy; ' + 
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
-    '<a href=" " target="_blank">MINSAL</a> | ' +
+    '<a href="https://www.geoportal.cl/geoportal/catalog/35499/Establecimientos%20de%20salud%20de%20Chile " target="_blank">MINSAL</a> | ' +
     '<a href="https://www.geoportal.cl/catalog" target="_blank">IDE CHILE</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
