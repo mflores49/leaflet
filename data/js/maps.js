@@ -40,7 +40,7 @@ googleSat1.addTo(map);
 
 var comunas        = L.geoJson(comunas,{
                      style : limite_comunas_style,
-                     
+                     onEachFeature : popuscomuna
 
                     }).addTo(map); 
 
@@ -91,7 +91,7 @@ var red_salud = L.geoJson(red_salud, {
         return L.circleMarker(latlng, red_salud_style); // Crea un marcador circular con el estilo definido
     },
     onEachFeature : popussalud, // Si tienes pop-ups o eventos puedes habilitar onEachFeature:
-    // onEachFeature: popusmanzana
+  
 }).addTo(map);
 
 

@@ -1,6 +1,6 @@
 var puentes_icon = L.icon({
  iconUrl    : "data/plugins/images/puentes.png",
- iconSize   :[15,15],
+ iconSize   :[10,10],
 
 
 });

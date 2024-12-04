@@ -31,12 +31,25 @@ function popuslocalidad(feature, layer){
 							;
 
 	layer.bindPopup(popupContent);
-	}
-
-        
-        
+	}     
         
  }
+
+
+ // Crear popus para el Geojson comuna
+function popuscomuna(feature, layer){
+    if(feature.properties  && feature.properties.ccomuna){
+        		
+		var popupContent = 	"<b>Comuna: </b>" 				+ feature.properties.ccomuna 				;
+
+							;
+
+	layer.bindPopup(popupContent);
+	}     
+        
+ }
+
+
 // Crear popus para el Geojson manzanas censales
 function popusmanzana(feature, layer){
     if(feature.properties && feature.properties.id_mz && feature.properties.mperson && feature.properties.mhombres && feature.properties.mmujeres && feature.properties.mtotal_viv){

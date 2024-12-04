@@ -39,7 +39,9 @@ function cargarstylemanzana(feature){
 
 //Crear estilo simple para polígonos (comunas)
     var limite_comunas_style = {
-	color		: "#d95f0e",
+       
+	// color		: "#d95f0e",
+    color		:  "#b03a2e",
 	weight		: 1.3,
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
@@ -48,7 +50,7 @@ function cargarstylemanzana(feature){
 
 //Crear estilo simple para polígonos (comunas)
 var red_hidrica_style = {
-	color		: "#2c7fb8",
+	color		: "#5dade2",
 	weight		: 1.3,
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
@@ -66,7 +68,7 @@ var red_vial_style = {
 
 
 var red_salud_style = {
-    radius: 7,
+    radius: 5,
     fillColor: "#f2f0f7",
     color: "red",
     weight: 2,
@@ -78,8 +80,8 @@ var red_salud_style = {
 
 //Crear estilo simple para polígonos (por localidad )
 var localidad_style = {
-	color		: "#949701 ",
-	weight		: 1.5 ,
+	color		: "#949701",
+	weight		: 1 ,
 	//dashArray	: "5, 10, 1",
 	fillOpacity	: 0
 };
