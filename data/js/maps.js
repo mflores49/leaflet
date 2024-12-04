@@ -448,8 +448,9 @@ var layers = {
         
         // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
         "Puentes MOP 2020"		: puentes,
-        "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
+   
         "Cluster Edificación Rural - PreCenso 2023 INE": markers,
+        "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
        
 };
  
