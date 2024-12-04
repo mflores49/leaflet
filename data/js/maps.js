@@ -181,6 +181,17 @@ var hotspotsLayer = L.esri.featureLayer({
   });
   
 
+    // Agregar la capa WMS
+    var wmsLayer = L.tileLayer.wms('https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer', {
+        layers: '1', // Nombre del layer que quieres usar
+        format: 'image/png',
+        transparent: true,
+        version: '1.3.0',
+        attribution: 'Capa WMS proporcionada por IDE MINAGRI'
+    });
+
+    // wmsLayer.addTo(map);
+
 
 //Agregar el control de coordenadas
 L.control.coordinates(
@@ -378,15 +389,18 @@ var baseMaps = {
 var layers = {
         
         "Comunas" : comunas,
-        "Red Salud - Minsal 2024" : red_salud,
-        "Cluster Edificación Rural - PreCenso 2023 INE": markers,
-        "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
-        "Localidad Censo 2017 - INE" : localidades_ptomontt,  
         "Manzanas Censo 2017 - INE"   : manzanas_ptomontt,
+        "Localidad Censo 2017 - INE" : localidades_ptomontt,
+        "Red Salud - Minsal 2024" : red_salud,
+        
+        "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
+        "Propiedad Rural 2016 - IDE Minagri" :wmsLayer,
+         
+        
         // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
         "Puentes MOP 2020"		: puentes,
         "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
-        
+        "Cluster Edificación Rural - PreCenso 2023 INE": markers,
        
 };
  
