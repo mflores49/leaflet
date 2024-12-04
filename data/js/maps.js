@@ -61,6 +61,19 @@ var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
                    }).addTo(map);         
 
 
+
+    // Agregar la capa WMS
+    var wmsLayer = L.tileLayer.wms('https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer', {
+        layers: '1', // Nombre del layer que quieres usar
+        format: 'image/png',
+        transparent: true,
+        version: '1.3.0',
+        attribution: 'Capa WMS proporcionada por IDE MINAGRI'
+    });
+
+    // wmsLayer.addTo(map);
+
+
 var manzanas_ptomontt        = L.geoJson(manzanas_ptomontt,{
     
                                  style : cargarstylemanzana,
@@ -181,16 +194,6 @@ var hotspotsLayer = L.esri.featureLayer({
   });
   
 
-    // Agregar la capa WMS
-    var wmsLayer = L.tileLayer.wms('https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer', {
-        layers: '1', // Nombre del layer que quieres usar
-        format: 'image/png',
-        transparent: true,
-        version: '1.3.0',
-        attribution: 'Capa WMS proporcionada por IDE MINAGRI'
-    });
-
-    // wmsLayer.addTo(map);
 
 
 //Agregar el control de coordenadas
@@ -381,7 +384,7 @@ var baseMaps = {
     "Desactivar Mapas Base" : L.layerGroup([]),
     "Google Satelital"      : googleSat1,
     "OpenStreetMap"         : osm,
-    "Google Traffic"        : traffic,
+    "Google Tráfico"        : traffic,
     "Esri Topográfico"       : d,
                           
     };
