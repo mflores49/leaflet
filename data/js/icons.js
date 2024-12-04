@@ -32,6 +32,9 @@ var otrosusos_icon = L.icon({
     iconSize	: 	[25,25],
 });
 
+
+
+
 //Función para obtener el ícono según categoría
 function obtenerIconEr (feature){
 

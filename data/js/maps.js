@@ -2,7 +2,7 @@ var map = L.map("map", {
     center: [-41.529218, -72.810565], // Coordenadas del centro
     zoom:9, // Nivel de zoom inicial
     minZoom:7.5, // Nivel mínimo de zoom
-    maxZoom: 17 // Nivel máximo de zoom
+    maxZoom: 18 // Nivel máximo de zoom
   });
   
 
@@ -95,18 +95,59 @@ var red_salud = L.geoJson(red_salud, {
 }).addTo(map);
 
 
-var cluster_Er = L.markerClusterGroup();
+// var cluster_Er = L.markerClusterGroup();
 
-var edificacion_rural3p 	= L.geoJSON(edificacion_rural3p,{
-                                onEachFeature : cargarIconEr
+// var edificacion_rural3p 	= L.geoJSON(edificacion_rural3p,{
+//                                 onEachFeature : cargarIconEr
+// });
+
+// cluster_Er.addLayer(edificacion_rural3p);
+//                             map.addLayer(cluster_Er);
+
+                            
+
+
+
+// Grupo de clusters
+const markers = L.markerClusterGroup();
+
+// Función para añadir los puntos al cluster con íconos personalizados
+function cargarPuntosConIconos(material) {
+    markers.clearLayers(); // Limpiar los marcadores actuales
+
+    // Filtrar los puntos según el material seleccionado
+    const filteredFeatures = material === 'all'
+        ? edificacion_rural3p.features
+        : edificacion_rural3p.features.filter(feature => feature.properties.USO_EDIFIC === material);
+
+    // Crear y agregar marcadores al cluster
+    filteredFeatures.forEach(feature => {
+        const { coordinates } = feature.geometry;
+        const { USO_EDIFIC } = feature.properties;
+
+        const marker = L.marker([coordinates[1], coordinates[0]], {
+            icon: obtenerIconEr(feature) // Asignar el ícono correcto
+        }).bindPopup(`Uso Edificación: ${USO_EDIFIC}`);
+
+        markers.addLayer(marker);
+    });
+
+    // Agregar el grupo de clusters al mapa
+    map.addLayer(markers);
+}
+
+// Inicializar el mapa con todos los puntos
+cargarPuntosConIconos('all');
+
+// Manejar el cambio en el select para filtrar puntos
+document.getElementById('material-select').addEventListener('change', function () {
+    const selectedMaterial = this.value;
+    cargarPuntosConIconos(selectedMaterial);
 });
 
-cluster_Er.addLayer(edificacion_rural3p);
-                            map.addLayer(cluster_Er);
 
-                            
-                            
-                            
+
+
 
 
 var hotspotsLayer = L.esri.featureLayer({
@@ -338,10 +379,11 @@ var layers = {
         
         "Comunas" : comunas,
         "Red Salud - Minsal 2024" : red_salud,
+        "Cluster Edificación Rural - PreCenso 2023 INE": markers,
         "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
         "Localidad Censo 2017 - INE" : localidades_ptomontt,  
         "Manzanas Censo 2017 - INE"   : manzanas_ptomontt,
-        "Cluster Edificación Rural - PreCenso 2023 INE "		: cluster_Er, 
+        // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
         "Puentes MOP 2020"		: puentes,
         "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
         

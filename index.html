@@ -33,7 +33,7 @@
     <script src="data/plugins/leaflet-search.js"></script>
     <script src="data/plugins/leaflet.markercluster.js"></script>
 
-   
+
     <link rel="stylesheet" href="data/css/style.css">
     <script src="data/plugins/leaflet-ruler.js"></script>
 </head>
@@ -44,7 +44,20 @@
             <div id="header">
                 "Plataforma de Análisis y Gestión Territorial, Distribución Vivienda Urbana-Rural, comuna de Puerto
                 Montt INE"
-                <img src="data/plugins/images/icono.png" id="infoIcon" title="Para optar a actualizaciones, limpie temporales de su navegador." />
+                <img src="data/plugins/images/icono.png" id="infoIcon"
+                    title="Para optar a actualizaciones, limpie temporales de su navegador." />
+            </div>
+
+            <div id="controls">
+                <label for="material-select">Filtrar Edificación Rural Precenso año 2023:</label>
+                <select id="material-select" >
+                    <option value="all">Todos</option>
+                    <option value="EDIFICACION">Edificación</option>
+                    <option value="OTRO USO">Otro Uso</option>
+                    <option value="VIVIENDA">Vivienda</option>
+                    <option value="VIVIENDA COLECTIVA">Vivienda Colectiva</option>
+                </select>
+                <!-- <button id="blue-button">Descargar datos</button> -->
             </div>
         </div>
 

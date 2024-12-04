@@ -1,0 +1,9 @@
+
+/* Estilos adicionales para los botones */
+#trace-route-button,
+#clear-route-button,
+#create-markers-button {
+    width: 100%; /* Botones ocupan todo el ancho del contenedor */
+    margin-top: 10px; /* Margen superior */
+}
+    
