@@ -23,7 +23,7 @@ var commonAttribution = 'Planificación Territorial - Datum WGS-84 Proyección G
     '<a href="https://www.geoportal.cl/geoportal/catalog/35499/Establecimientos%20de%20salud%20de%20Chile " target="_blank">MINSAL</a> | ' +
     '<a href="https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer" target="_blank">IDE MINAGRI</a> | ' +
    
-    '<a href="https://www.geoportal.cl/geoportal/catalog/34864/Mapa%20Geol%C3%B3gico%20de%20Chile%20escala%201:1.000.000 " target="_blank">Sernageomin</a> | ' +
+   // '<a href="https://www.geoportal.cl/geoportal/catalog/34864/Mapa%20Geol%C3%B3gico%20de%20Chile%20escala%201:1.000.000 " target="_blank">Sernageomin</a> | ' +
     '<a href="https://www.geoportal.cl/catalog" target="_blank">IDE CHILE</a> | ' +
     '<a href="https://www.windy.com/es/-Temperatura-temp?temp,-41.456,-72.933,11" target="_blank">Windy</a> | ' +
     '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs,24hrs;l:fires_all,countries,landsat_human,protected_areas,protected_areas_regional,volcanoes,earth;@-72.89,-41.46,10.64z" target="_blank">Firms-NASA 24hrs</a> | ' +
@@ -41,11 +41,6 @@ googleSat1.addTo(map);
 
 
 
-var comunas        = L.geoJson(comunas,{
-                     style : limite_comunas_style,
-                     onEachFeature : popuscomuna
-
-                    }).addTo(map); 
 
 
 var red_hidrica        = L.geoJson(red_hidrica,{
@@ -78,47 +73,212 @@ var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
 
 
 
+  // Agregar la capa del servicio de peligros volcánicos del volcán Calbuco
+  var calbucoLayer = L.esri.dynamicMapLayer({
+    url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Volcanes_SNIT/01_PeligrosVolcanicos_Calbuco/MapServer',
+    opacity: 0.7
+}).addTo(map);
 
-     // Agregar la capa del servicio
-    var geologiaBase = L.esri.dynamicMapLayer({
-        url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Geoportal/GeologiaBase/MapServer',
-        opacity: 0.7
-      }).addTo(map);
-  
-      // Agregar eventos para mostrar popups
-      map.on('click', function (e) {
-        // Hacer la consulta al servicio en el punto clickeado
-        geologiaBase.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
-          if (error) {
+// Habilitar eventos para mostrar popups al hacer clic en el mapa
+map.on('click', function (e) {
+    // Realizar una consulta al servicio en la ubicación clickeada
+    calbucoLayer.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
+        if (error) {
             console.error('Error al consultar el servicio:', error);
             return;
-          }
-  
-          if (featureCollection.features.length > 0) {
-            // Extraer los datos de los atributos de la primera feature
+        }
+
+        if (featureCollection.features.length > 0) {
+            // Extraer los atributos del primer feature encontrado
             var attributes = featureCollection.features[0].properties;
-  
+
             // Crear el contenido del popup
-            var popupContent = '<b>Datos Servicio Geología Base 1:1.000.000 Sernageomin:</b><br>';
+            var popupContent = '<b>Datos del servicio de Peligros Volcánicos Calbuco:</b><br>';
             for (var key in attributes) {
-              popupContent += `<b>${key}:</b> ${attributes[key]}<br>`;
+                popupContent += `<b>${key}:</b> ${attributes[key]}<br>`;
             }
-  
+
             // Mostrar el popup en el mapa
             L.popup()
-              .setLatLng(e.latlng)
-              .setContent(popupContent)
-              .openOn(map);
-          } else {
-            // Mostrar un mensaje si no hay datos en el lugar clickeado
+                .setLatLng(e.latlng)
+                .setContent(popupContent)
+                // .openOn(map)
+                ;
+        } else {
+            // Mostrar un mensaje si no hay datos disponibles
             L.popup()
-              .setLatLng(e.latlng)
-              .setContent('No hay datos disponibles en este punto.')
-              .openOn(map);
-          }
-        });
-      });
+                .setLatLng(e.latlng)
+                .setContent('No hay datos disponibles en este punto.')
+                // .openOn(map)
+                ;
+        }
+    });
+});
 
+
+
+
+//      // Agregar la capa del servicio
+//     var geologiaBase = L.esri.dynamicMapLayer({
+//         url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Geoportal/GeologiaBase/MapServer',
+//         opacity: 0.7
+//       });
+  
+//       // Agregar eventos para mostrar popups
+//       map.on('click', function (e) {
+//         // Hacer la consulta al servicio en el punto clickeado
+//         geologiaBase.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
+//           if (error) {
+//             console.error('Error al consultar el servicio:', error);
+//             return;
+//           }
+  
+//           if (featureCollection.features.length > 0) {
+//             // Extraer los datos de los atributos de la primera feature
+//             var attributes = featureCollection.features[0].properties;
+  
+//             // Crear el contenido del popup
+//             var popupContent = '<b>Datos Servicio Geología Base 1:1.000.000 Sernageomin:</b><br>';
+//             for (var key in attributes) {
+//               popupContent += `<b>${key}:</b> ${attributes[key]}<br>`;
+//             }
+  
+//             // Mostrar el popup en el mapa
+//             L.popup()
+//               .setLatLng(e.latlng)
+//               .setContent(popupContent)
+//               .openOn(map)
+//               ;
+//           } else {
+//             // Mostrar un mensaje si no hay datos en el lugar clickeado
+//             L.popup()
+//               .setLatLng(e.latlng)
+//               .setContent('No hay datos disponibles en este punto.')
+//               .openOn(map)
+//               ;
+//           }
+//         });
+//       });
+
+
+ // Variables para activar/desactivar capas
+//  var geologiaBaseActive = true; // Estado inicial de la capa de Geología Base
+//  var calbucoLayerActive = true; // Estado inicial de la capa de Peligros Volcánicos
+
+//  // Agregar la capa de Geología Base
+//  var geologiaBase = L.esri.dynamicMapLayer({
+//      url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Geoportal/GeologiaBase/MapServer',
+//      opacity: 0.7
+//  }).addTo(map);
+
+//  Agregar la capa de Peligros Volcánicos del Calbuco
+//  var calbucoLayer = L.esri.dynamicMapLayer({
+//      url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Volcanes_SNIT/01_PeligrosVolcanicos_Calbuco/MapServer',
+//      opacity: 0.7
+//  }).addTo(map);
+
+//  // Función para manejar respuestas del servicio
+//  function handleIdentifyResponse(error, featureCollection, layerName, latlng) {
+//      if (error) {
+//          console.error(`Error al consultar ${layerName}:`, error);
+//          return;
+//      }
+
+//      if (featureCollection.features.length > 0) {
+//          // Extraer atributos de la primera feature encontrada
+//          var attributes = featureCollection.features[0].properties;
+//          var popupContent = `<b>Datos del servicio ${layerName}:</b><br>`;
+//          for (var key in attributes) {
+//              popupContent += `<b>${key}:</b> ${attributes[key]}<br>`;
+//          }
+
+//          // Mostrar el popup
+//          L.popup()
+//              .setLatLng(latlng)
+//              .setContent(popupContent)
+//              .openOn(map);
+//      } else {
+//          // Mostrar un mensaje si no hay datos disponibles
+//          L.popup()
+//              .setLatLng(latlng)
+//              .setContent(`No hay datos disponibles en este punto para ${layerName}.`)
+//              .openOn(map);
+//      }
+//  }
+
+//  // Evento clic en el mapa
+//  map.on('click', function (e) {
+//      // Consultar Geología Base solo si está activa
+//     //  if (geologiaBaseActive) {
+//     //      geologiaBase.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
+//     //          handleIdentifyResponse(error, featureCollection, 'Geología Base', e.latlng);
+//     //      });
+//     //  }
+
+//      // Consultar Peligros Volcánicos solo si está activa
+//      if (calbucoLayerActive) {
+//          calbucoLayer.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
+//              handleIdentifyResponse(error, featureCollection, 'Peligros Volcánicos Calbuco', e.latlng);
+//          });
+//      }
+//  });
+
+//  // Función para activar/desactivar capas
+//  function toggleLayer(layer, isActive) {
+//      if (isActive) {
+//          map.addLayer(layer);
+//      } else {
+//          map.removeLayer(layer);
+//      }
+//  }
+
+//  // Simular interacción de botones para activar/desactivar capas
+//  setTimeout(() => {
+//      console.log('Apagando la capa Geología Base...');
+//      geologiaBaseActive = false; // Cambiar el estado a inactivo
+//      toggleLayer(geologiaBase, false);
+//  }, 5000); // Apagar capa después de 5 segundos
+
+
+
+    // Integrar el servicio de humedales
+    var humedalesLayer = L.esri.featureLayer({
+        url: 'https://arcgis.mma.gob.cl/server/rest/services/SIMBIO/SIMBIO_HUMEDALES/MapServer/0',
+        style: function () {
+            return {
+                color: '#2171b5',
+                weight: 2,
+                fillColor: '#6baed6',
+                fillOpacity: 0.5
+            };
+        }
+    }).addTo(map);
+
+    // Mostrar popup al hacer clic en un elemento
+    humedalesLayer.on('click', function (e) {
+        var popupContent = '<b>Datos del Humedal:</b><br>';
+        for (var key in e.layer.feature.properties) {
+            popupContent += `<b>${key}:</b> ${e.layer.feature.properties[key]}<br>`;
+        }
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent(popupContent)
+            .openOn(map);
+    });
+
+    // // Ajustar la vista del mapa para que abarque la capa completa
+    // humedalesLayer.once('load', function () {
+    //     map.fitBounds(humedalesLayer.getBounds());
+    // });
+
+
+
+
+var comunas        = L.geoJson(comunas,{
+        style : limite_comunas_style,
+        // onEachFeature : popuscomuna
+
+       }).addTo(map); 
 
 var manzanas_ptomontt        = L.geoJson(manzanas_ptomontt,{
     
@@ -209,6 +369,40 @@ document.getElementById('material-select').addEventListener('change', function (
 
 
 
+// var hotspotsLayer = L.esri.featureLayer({
+//     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
+//     onEachFeature: function (feature, layer) {
+//       // Verificar si acq_time es una marca de tiempo Unix
+//       var acqTime = feature.properties.acq_time;
+  
+//       // Si acq_time es un número (marca de tiempo Unix en milisegundos)
+//       if (typeof acqTime === 'number') {
+//         acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
+//         acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
+//       }
+  
+//       // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
+//       // Ejemplo de formato: "2024-01-01T12:00:00Z"
+  
+//       // Crear el popup con la fecha formateada
+//       layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTime);
+      
+//       // Crear un ícono rojo usando L.divIcon
+//       var redIcon = L.divIcon({
+//         className: 'custom-icon',  // Puedes agregar una clase CSS si es necesario
+//         html: '<div style="background-color: red; width: 12px; height: 12px; border-radius: 50%;"></div>',
+//         iconSize: [30, 30]  // Tamaño del ícono
+//       });
+    
+//       // Asignar el ícono rojo al marcador
+//       layer.setIcon(redIcon);
+//     }
+//   });
+  
+
+
+
+
 var hotspotsLayer = L.esri.featureLayer({
     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
     onEachFeature: function (feature, layer) {
@@ -237,8 +431,11 @@ var hotspotsLayer = L.esri.featureLayer({
       // Asignar el ícono rojo al marcador
       layer.setIcon(redIcon);
     }
-  });
-  
+  }).addTo(map);
+
+
+
+
 
 
 
@@ -436,7 +633,6 @@ var baseMaps = {
     };
 
 var layers = {
-        
         "Comunas" : comunas,
         "Manzanas Censo 2017 - INE"   : manzanas_ptomontt,
         "Localidad Censo 2017 - INE" : localidades_ptomontt,
@@ -444,13 +640,16 @@ var layers = {
         
         "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
         "Propiedad Rural 2016 - IDE Minagri" :wmsLayer,
-        "Geologia base 1:1000000 - Sernageomin 2010" : geologiaBase,
+      
         
         // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
         "Puentes MOP 2020"		: puentes,
-   
+        "humedalesLayer": humedalesLayer,
         "Cluster Edificación Rural - PreCenso 2023 INE": markers,
+        // "Peligros Volcánicos Calbuco" : calbucoLayer,
+        // "Geologia base 1:1000000 - Sernageomin 2010" : geologiaBase,
         "Puntos de Calor últimos 7 días VIIRS-NASA": hotspotsLayer,
+         
        
 };
  
