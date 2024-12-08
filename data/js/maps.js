@@ -277,7 +277,9 @@ var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
                 fillOpacity: 0.5
             };
         }
-    }).addTo(map);
+    })
+    // .addTo(map)
+    ;
 
     // Mostrar popup al hacer clic en un elemento
     humedalesLayer.on('click', function (e) {
