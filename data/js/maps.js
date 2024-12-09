@@ -186,102 +186,37 @@ var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
 //       });
 
 
- // Variables para activar/desactivar capas
-//  var geologiaBaseActive = true; // Estado inicial de la capa de Geología Base
-//  var calbucoLayerActive = true; // Estado inicial de la capa de Peligros Volcánicos
-
-//  // Agregar la capa de Geología Base
-//  var geologiaBase = L.esri.dynamicMapLayer({
-//      url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Geoportal/GeologiaBase/MapServer',
-//      opacity: 0.7
-//  }).addTo(map);
-
-//  Agregar la capa de Peligros Volcánicos del Calbuco
-//  var calbucoLayer = L.esri.dynamicMapLayer({
-//      url: 'https://sdngsig.sernageomin.cl/gissdng/rest/services/Volcanes_SNIT/01_PeligrosVolcanicos_Calbuco/MapServer',
-//      opacity: 0.7
-//  }).addTo(map);
-
-//  // Función para manejar respuestas del servicio
-//  function handleIdentifyResponse(error, featureCollection, layerName, latlng) {
-//      if (error) {
-//          console.error(`Error al consultar ${layerName}:`, error);
-//          return;
-//      }
-
-//      if (featureCollection.features.length > 0) {
-//          // Extraer atributos de la primera feature encontrada
-//          var attributes = featureCollection.features[0].properties;
-//          var popupContent = `<b>Datos del servicio ${layerName}:</b><br>`;
-//          for (var key in attributes) {
-//              popupContent += `<b>${key}:</b> ${attributes[key]}<br>`;
-//          }
-
-//          // Mostrar el popup
-//          L.popup()
-//              .setLatLng(latlng)
-//              .setContent(popupContent)
-//              .openOn(map);
-//      } else {
-//          // Mostrar un mensaje si no hay datos disponibles
-//          L.popup()
-//              .setLatLng(latlng)
-//              .setContent(`No hay datos disponibles en este punto para ${layerName}.`)
-//              .openOn(map);
-//      }
-//  }
-
-//  // Evento clic en el mapa
-//  map.on('click', function (e) {
-//      // Consultar Geología Base solo si está activa
-//     //  if (geologiaBaseActive) {
-//     //      geologiaBase.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
-//     //          handleIdentifyResponse(error, featureCollection, 'Geología Base', e.latlng);
-//     //      });
-//     //  }
-
-//      // Consultar Peligros Volcánicos solo si está activa
-//      if (calbucoLayerActive) {
-//          calbucoLayer.identify().on(map).at(e.latlng).run(function (error, featureCollection) {
-//              handleIdentifyResponse(error, featureCollection, 'Peligros Volcánicos Calbuco', e.latlng);
-//          });
-//      }
-//  });
-
-//  // Función para activar/desactivar capas
-//  function toggleLayer(layer, isActive) {
-//      if (isActive) {
-//          map.addLayer(layer);
-//      } else {
-//          map.removeLayer(layer);
-//      }
-//  }
-
-//  // Simular interacción de botones para activar/desactivar capas
-//  setTimeout(() => {
-//      console.log('Apagando la capa Geología Base...');
-//      geologiaBaseActive = false; // Cambiar el estado a inactivo
-//      toggleLayer(geologiaBase, false);
-//  }, 5000); // Apagar capa después de 5 segundos
+var humedalesLayer = L.esri.featureLayer({
+    url: 'https://arcgis.mma.gob.cl/server/rest/services/SIMBIO/SIMBIO_HUMEDALES/MapServer/0',
+    style: function () {
+        return {
+            color: '#2171b5',
+            weight: 2,
+            fillColor: '#6baed6',
+            fillOpacity: 0.5
+        };
+    },
+    minZoom: 11, // Nivel de zoom mínimo para mostrar la capa
+    maxZoom: 18  // Nivel de zoom máximo para mostrar la capa
+}).addTo(map);
 
 
+    // // Integrar el servicio de humedales NOTA
+    // var humedalesLayer = L.esri.featureLayer({
+    //     url: 'https://arcgis.mma.gob.cl/server/rest/services/SIMBIO/SIMBIO_HUMEDALES/MapServer/0',
+    //     style: function () {
+    //         return {
+    //             color: '#2171b5',
+    //             weight: 2,
+    //             fillColor: '#6baed6',
+    //             fillOpacity: 0.5
+    //         };
+    //     }
+    // })
+    // // .addTo(map)
+    // ;
 
-    // Integrar el servicio de humedales
-    var humedalesLayer = L.esri.featureLayer({
-        url: 'https://arcgis.mma.gob.cl/server/rest/services/SIMBIO/SIMBIO_HUMEDALES/MapServer/0',
-        style: function () {
-            return {
-                color: '#2171b5',
-                weight: 2,
-                fillColor: '#6baed6',
-                fillOpacity: 0.5
-            };
-        }
-    })
-    // .addTo(map)
-    ;
-
-    // Mostrar popup al hacer clic en un elemento
+    // Mostrar popup al hacer clic en un elemento NOTA
     humedalesLayer.on('click', function (e) {
         var popupContent = '<b>Datos del Humedal:</b><br>';
         for (var key in e.layer.feature.properties) {
@@ -293,11 +228,7 @@ var localidades_ptomontt  = L.geoJson(localidades_ptomontt,{
             .openOn(map);
     });
 
-    // // Ajustar la vista del mapa para que abarque la capa completa
-    // humedalesLayer.once('load', function () {
-    //     map.fitBounds(humedalesLayer.getBounds());
-    // });
-
+   
 
 
 
@@ -671,7 +602,7 @@ var layers = {
         
         // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
         "Puentes MOP 2020"		: puentes,
-        "Inventario Nacional de Humedales": humedalesLayer,
+        "Inventario Nacional de Humedales - MMA": humedalesLayer,
         "Cluster Edificación Rural - PreCenso 2023 INE": markers,
         "Peligros Volcánicos Calbuco" : peligrosVolcanicosLayer,
         // "Geologia base 1:1000000 - Sernageomin 2010" : geologiaBase,
