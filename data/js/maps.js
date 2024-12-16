@@ -21,7 +21,7 @@ var commonAttribution = 'Planificación Territorial - Datum WGS-84 Proyección G
     '<a href="https://censo2024.ine.gob.cl/" target="_blank">INE</a> | ' +
     '<a href="https://mapas.mop.gov.cl/" target="_blank">MOP</a> | ' +
     '<a href="https://www.geoportal.cl/geoportal/catalog/35499/Establecimientos%20de%20salud%20de%20Chile " target="_blank">MINSAL</a> | ' +
-    '<a href="https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer" target="_blank">IDE MINAGRI</a> | ' +
+    '<a href="https://esri.ciren.cl/server/services/IDEMINAGRI/PROPIEDADES_RURALES/MapServer/WMSServer" target="_blank">CIREN</a> | ' +
     '<a href="https://arcgis.mma.gob.cl/portal/apps/webappviewer/index.html?id=6a79f6b535154991895f2bb2204b83bb&extent=-8007706.1083%2C-4019000.5424%2C-7934326.5611%2C-3982884.0466%2C102100" target="_blank">MMA</a> | ' +
    // '<a href="https://www.geoportal.cl/geoportal/catalog/34864/Mapa%20Geol%C3%B3gico%20de%20Chile%20escala%201:1.000.000 " target="_blank">Sernageomin</a> | ' +
     '<a href="https://www.geoportal.cl/catalog" target="_blank">IDE CHILE</a> | ' +
@@ -597,7 +597,7 @@ var layers = {
         "Red Salud - Minsal 2024" : red_salud,
         
         "Red Hídrica - IDE Chile 2022" :  red_hidrica, 
-        "Propiedad Rural 2016 - IDE Minagri" :wmsLayer,
+        "Propiedad Rural 2016 - CIREN" :wmsLayer,
       
         
         // "Cluster Edificación Rural - PreCenso 2023 INE1 "		: cluster_Er, 
