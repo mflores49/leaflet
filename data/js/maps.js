@@ -7,6 +7,70 @@ var map = L.map("map", {
   
 
 
+
+        // Crear un grupo para los elementos dibujados
+        const drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        // Configurar el control de dibujo con estilos amarillos
+        const drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems, // Permitir edición de los dibujos
+            },
+            draw: {
+                polygon: {
+                    shapeOptions: {
+                        color: '#FF00FF', // Cambiar el color a amarillo
+                        weight: 4
+                    }
+                },
+                rectangle: {
+                    shapeOptions: {
+                        color: '#FF00FF', // Cambiar el color a amarillo
+                        weight: 4
+                    }
+                },
+                circle: {
+                    shapeOptions: {
+                        color: '#FF00FF', // Cambiar el color a amarillo
+                        weight: 4
+                    }
+                },
+                polyline: {
+                    shapeOptions: {
+                        color: '#FF00FF', // Cambiar el color a amarillo
+                        weight: 4
+                    }
+                },
+                marker: {
+                    icon: L.icon({
+                        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41]
+                    })
+                }
+            }
+        });
+
+        // Agregar el control de dibujo al mapa
+        map.addControl(drawControl);
+
+        // Manejar el evento de creación de dibujos
+        map.on(L.Draw.Event.CREATED, function (event) {
+            const layer = event.layer;
+            drawnItems.addLayer(layer); // Agregar el dibujo al grupo
+
+            // // Mostrar información de los dibujos en la consola
+            // if (layer instanceof L.Polygon || layer instanceof L.Polyline) {
+            //     console.log('Coordenadas:', JSON.stringify(layer.getLatLngs()));
+            // } else if (layer instanceof L.Marker) {
+            //     console.log('Coordenada del marcador:', layer.getLatLng());
+            // }
+        });
+
+
+
 var googleStreets = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}');
 
 // Función para crear capas con una atribución común

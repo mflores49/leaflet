@@ -113,3 +113,112 @@ function popuspuentes(feature, layer){
         
         
 }
+
+
+
+L.drawLocal = {
+    draw: {
+        toolbar: {
+            actions: {
+                title: "Cancelar dibujo",
+                text: "Cancelar"
+            },
+            finish: {
+                title: "Terminar dibujo",
+                text: "Terminar"
+            },
+            undo: {
+                title: "Eliminar el último punto dibujado",
+                text: "Deshacer"
+            },
+            buttons: {
+                polyline: "Dibujar una polilínea",
+                polygon: "Dibujar un polígono",
+                rectangle: "Dibujar un rectángulo",
+                circle: "Dibujar un círculo",
+                marker: "Dibujar un marcador",
+                circlemarker: "Dibujar un marcador circular"
+            }
+        },
+        handlers: {
+            circle: {
+                tooltip: {
+                    start: "Haz clic y arrastra para dibujar un círculo."
+                },
+                radius: "Radio"
+            },
+            circlemarker: {
+                tooltip: {
+                    start: "Haz clic en el mapa para colocar un marcador circular."
+                }
+            },
+            marker: {
+                tooltip: {
+                    start: "Haz clic en el mapa para colocar un marcador."
+                }
+            },
+            polygon: {
+                tooltip: {
+                    start: "Haz clic para comenzar a dibujar una forma.",
+                    cont: "Haz clic para continuar dibujando la forma.",
+                    end: "Haz clic en el primer punto para cerrar esta forma."
+                }
+            },
+            polyline: {
+                error: "<strong>Error:</strong> los bordes de la forma no pueden cruzarse.",
+                tooltip: {
+                    start: "Haz clic para comenzar a dibujar una línea.",
+                    cont: "Haz clic para continuar dibujando la línea.",
+                    end: "Haz clic en el último punto para terminar la línea."
+                }
+            },
+            rectangle: {
+                tooltip: {
+                    start: "Haz clic y arrastra para dibujar un rectángulo."
+                }
+            },
+            simpleshape: {
+                tooltip: {
+                    end: "Suelta el ratón para terminar de dibujar."
+                }
+            }
+        }
+    },
+    edit: {
+        toolbar: {
+            actions: {
+                save: {
+                    title: "Guardar cambios",
+                    text: "Guardar"
+                },
+                cancel: {
+                    title: "Cancelar edición y descartar todos los cambios",
+                    text: "Cancelar"
+                },
+                clearAll: {
+                    title: "Borrar todas las capas",
+                    text: "Borrar todo"
+                }
+            },
+            buttons: {
+                edit: "Editar capas",
+                editDisabled: "No hay capas para editar",
+                remove: "Eliminar capas",
+                removeDisabled: "No hay capas para eliminar"
+            }
+        },
+        handlers: {
+            edit: {
+                tooltip: {
+                    text: "Arrastra los puntos o marcadores para editar las características.",
+                    subtext: "Haz clic en cancelar para deshacer los cambios."
+                }
+            },
+            remove: {
+                tooltip: {
+                    text: "Haz clic en una característica para eliminarla."
+                }
+            }
+        }
+    }
+};
