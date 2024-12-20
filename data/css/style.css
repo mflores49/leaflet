@@ -60,4 +60,9 @@
         background-color: #0056b3; /* Azul más oscuro para hover */
       }
 
-  
+      .custom-icon {
+        width: 18px;  /* Tamaño aumentado para el punto rojo */
+        height: 18px; /* Tamaño aumentado para el punto rojo */
+        border-radius: 50%;
+        background-color: red;
+      }

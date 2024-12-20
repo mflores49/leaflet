@@ -41,7 +41,7 @@ var googleSat1 = createTileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z
 var d = createTileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', commonAttribution);
 
 // Añadir la capa predeterminada al mapa
-googleSat1.addTo(map);
+osm.addTo(map);
 
 
 
@@ -331,73 +331,54 @@ document.getElementById('material-select').addEventListener('change', function (
 
 
 
-// var hotspotsLayer = L.esri.featureLayer({
-//     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
-//     onEachFeature: function (feature, layer) {
-//       // Verificar si acq_time es una marca de tiempo Unix
-//       var acqTime = feature.properties.acq_time;
-  
-//       // Si acq_time es un número (marca de tiempo Unix en milisegundos)
-//       if (typeof acqTime === 'number') {
-//         acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
-//         acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
-//       }
-  
-//       // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
-//       // Ejemplo de formato: "2024-01-01T12:00:00Z"
-  
-//       // Crear el popup con la fecha formateada
-//       layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTime);
-      
-//       // Crear un ícono rojo usando L.divIcon
-//       var redIcon = L.divIcon({
-//         className: 'custom-icon',  // Puedes agregar una clase CSS si es necesario
-//         html: '<div style="background-color: red; width: 12px; height: 12px; border-radius: 50%;"></div>',
-//         iconSize: [30, 30]  // Tamaño del ícono
-//       });
-    
-//       // Asignar el ícono rojo al marcador
-//       layer.setIcon(redIcon);
-//     }
-//   });
-  
-
 
 
 
 var hotspotsLayer = L.esri.featureLayer({
     url: 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0',
     onEachFeature: function (feature, layer) {
-      // Verificar si acq_time es una marca de tiempo Unix
-      var acqTime = feature.properties.acq_time;
-  
-      // Si acq_time es un número (marca de tiempo Unix en milisegundos)
-      if (typeof acqTime === 'number') {
-        acqTime = new Date(acqTime);  // Convierte la marca de tiempo a un objeto Date de JavaScript
-        acqTime = acqTime.toUTCString();  // Convierte a una cadena legible en formato UTC
+      // Obtener el timestamp y convertirlo a fecha
+      var acqTime = new Date(feature.properties.acq_time);  // Convertir el timestamp Unix a fecha
+
+      // Obtener la fecha de hoy sin la hora
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);  // Establecer la hora a las 00:00:00 para la comparación
+
+      // Crear la fecha de mañana para el límite superior
+      var tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);  // Día siguiente
+
+      // Ajustar la fecha de adquisición (acqTime) para comparar solo la fecha
+      acqTime.setHours(0, 0, 0, 0);  // Establecer la hora a las 00:00:00 de acqTime
+
+      // Crear la cadena para la fecha en formato UTC
+      var acqTimeString = new Date(feature.properties.acq_time).toUTCString();
+
+      // Comprobar si la fecha de adquisición es hoy
+      if (acqTime >= today && acqTime < tomorrow) {
+        layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTimeString);
+
+        // Asignar el ícono rojo a todos los puntos de calor
+        layer.setIcon(L.divIcon({
+          className: 'custom-icon'  // Usamos la clase de icono rojo
+        }));
+      } else {
+        // Si no es el día de hoy, asignar una imagen personalizada para el ícono de los puntos
+        var customIcon = L.icon({
+          iconUrl: 'data/plugins/images/plomo.png',  // URL de tu imagen
+          iconSize: [10, 10],  // Tamaño del icono
+          iconAnchor: [15, 15],  // Ancla del icono para que esté centrado
+          popupAnchor: [0, -15]  // Ubicación del popup
+        });
+        
+        // Asignar el ícono personalizado
+        layer.setIcon(customIcon);
+        
+        // Asignar el popup también a los puntos con ícono personalizado
+        layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTimeString);
       }
-  
-      // Si acq_time ya está en formato de fecha legible, no es necesario hacer ninguna conversión
-      // Ejemplo de formato: "2024-01-01T12:00:00Z"
-  
-      // Crear el popup con la fecha formateada
-      layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTime);
-      
-      // Crear un ícono rojo usando L.divIcon
-      var redIcon = L.divIcon({
-        className: 'custom-icon',  // Puedes agregar una clase CSS si es necesario
-        html: '<div style="background-color: red; width: 12px; height: 12px; border-radius: 50%;"></div>',
-        iconSize: [30, 30]  // Tamaño del ícono
-      });
-    
-      // Asignar el ícono rojo al marcador
-      layer.setIcon(redIcon);
     }
   }).addTo(map);
-
-
-
-
 
 
 
