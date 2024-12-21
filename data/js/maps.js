@@ -356,7 +356,7 @@ var hotspotsLayer = L.esri.featureLayer({
 
       // Comprobar si la fecha de adquisición es hoy
       if (acqTime >= today && acqTime < tomorrow) {
-        layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTimeString);
+        layer.bindPopup("Detección Punto NASA Calor VIIRS Hora UTC: " + acqTimeString);
 
         // Asignar el ícono rojo a todos los puntos de calor
         layer.setIcon(L.divIcon({
@@ -375,7 +375,7 @@ var hotspotsLayer = L.esri.featureLayer({
         layer.setIcon(customIcon);
         
         // Asignar el popup también a los puntos con ícono personalizado
-        layer.bindPopup("Detección Punto Calor NASA VIIRS Hora UTC: " + acqTimeString);
+        layer.bindPopup("Detección Punto Calor VIIRS Hora UTC: " + acqTimeString);
       }
     }
   }).addTo(map);
@@ -544,7 +544,7 @@ new L.Control.MiniMap(googleStreets,{
            },
     
            {
-            label 		: "Actividad térmica sensores NASA VIIRS, últimos 7 días",
+            label 		: "Actividad térmica sensores NASA VIIRS, día actual",
             type 		: "image",
             url :        "data/plugins/images/rojo.png",
             layers		: hotspotsLayer
