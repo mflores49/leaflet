@@ -711,10 +711,10 @@ L.control.layers(baseMaps, layers).addTo(map);
     locateControl.addTo(map);
 
 
-    //   // Evento para el ícono i descripcion
-    // document.getElementById('infoIcon').addEventListener('click', function () {
-    //     alert("Para optar a actualizaciones, limpie temporales de su navegador.");
-    // });
+      // Evento para el ícono i descripcion
+    document.getElementById('infoIcon').addEventListener('click', function () {
+        alert("Planificación Territorial - Datum WGS-84 Proyección Geográfica CHILE.");
+    });
  
 
     // L.control.ruler({
