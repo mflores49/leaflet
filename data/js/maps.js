@@ -550,7 +550,15 @@ new L.Control.MiniMap(googleStreets,{
             layers		: hotspotsLayer
     
            },
+
+
+       {
+            label 		: "Actividad térmica sensores NASA VIIRS, últimos 7 días",
+            type 		: "image",
+            url :        "data/plugins/images/plomo.png",
+            layers		: hotspotsLayer
     
+           },
            
     ]
     }).addTo(map);
